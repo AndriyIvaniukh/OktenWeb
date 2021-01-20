@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PracticalTask2</title>
+    <style>
+        * {
+            border: 1px solid black;
+        }
+        
+        #body {
+            background-color: rgb(71, 71, 71);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #header {
+            background-color: gray;
+            height: 80px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        #hNav {
+            background-color: silver;
+            margin: 10px;
+            height: 30px;
+            width: 100%;
+        }
+        
+        #main {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #firstSection {
+            background-color: gray;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+        }
+        
+        #fHeader {
+            background-color: silver;
+            margin: 10px;
+            height: 40px;
+            width: calc(100% - 20px);
+        }
+        
+        #fNav {
+            background-color: silver;
+            margin: 10px;
+            height: 400px;
+            width: calc(100% - 20px);
+        }
+        
+        #fFooter {
+            background-color: silver;
+            margin: 10px;
+            height: 40px;
+            width: calc(100% - 20px);
+        }
+        
+        #secondSection {
+            background-color: gray;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+        }
+        
+        #sHeader {
+            background-color: silver;
+            margin: 10px;
+            height: 40px;
+            width: calc(100%-20px);
+        }
+        
+        #sArticleFirst {
+            background-color: silver;
+            margin: 10px;
+            height: 190px;
+            width: calc(100% - 20px);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sArticleFirst {
+            background-color: whitesmoke;
+            margin: 10px;
+            height: 30px;
+            width: calc(100% - 20px);
+        }
+        
+        #sArticleSecond {
+            background-color: silver;
+            margin: 10px;
+            height: 190px;
+            width: calc(100% - 20px);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sArticleSecond {
+            background-color: whitesmoke;
+            margin: 10px;
+            height: 30px;
+            width: calc(100% - 20px);
+        }
+        
+        #sArticleSecondPlate {
+            border: 0px;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #sASPp {
+            background-color: whitesmoke;
+            margin: 10px;
+            height: 60px;
+            width: calc(70% - 20px);
+        }
+        
+        #sASPaside {
+            background-color: whitesmoke;
+            margin: 10px;
+            height: 60px;
+            width: calc(30% - 20px);
+        }
+        
+        #sFooter {
+            background-color: silver;
+            margin: 10px;
+            height: 40px;
+            width: calc(100% - 20px);
+        }
+        
+        #footer {
+            background-color: gray;
+            margin: 10px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body">
+        <div id="header">
+            <div id="hNav"></div>
+        </div>
+        <div id="main">
+            <div id="firstSection">
+                <div id="fHeader"></div>
+                <div id="fNav"></div>
+                <div id="fFooter"></div>
+            </div>
+            <div id="secondSection">
+                <div id="sHeader"></div>
+                <div id="sArticleFirst">
+                    <div class="sArticleFirst"></div>
+                    <div class="sArticleFirst"></div>
+                    <div class="sArticleFirst"></div>
+                    <div class="sArticleFirst"></div>
+                </div>
+                <div id="sArticleSecond">
+                    <div class="sArticleSecond"></div>
+                    <div id="sArticleSecondPlate">
+                        <div id="sASPp"></div>
+                        <div id="sASPaside"></div>
+                    </div>
+                    <div class="sArticleSecond"></div>
+                </div>
+                <div id="sFooter"></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>
