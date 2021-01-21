@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homework 4</title>
     <style>
+        #wrap {
+            display: flex;
+            flex-direction: column;
+        }
+        
         #header {
             background-color: bisque;
             height: 70px;
@@ -13,6 +18,7 @@
         
         #main {
             display: flex;
+            flex-direction: row;
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -24,7 +30,8 @@
         }
         
         #posts {
-            height: 400px;
+            display: flex;
+            flex-direction: column;
             width: calc(100% - 385px);
             margin-left: 10px;
         }
