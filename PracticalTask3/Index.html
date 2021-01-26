@@ -10,11 +10,50 @@
 </head>
 
 <body>
-    <div class="container-fluid " style="background-color:silver;">
-        <div class="offset-2 col-8" style="background-color: slategray; top: 80px;">
-            <div class="header row" style="height: 80px;background-color: snow;"></div>
+    <div class="container-fluid" style="background-color: #ABAEB3; ">
+        <div class="offset-2 col-8" style="padding-top:40px ;">
+            <div class="header d-flex flex-column">
+                <nav class="navbar navbar-expand-lg navbar-light col-12" style="background-color: #EEF1F6 ;">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex offset-2">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
 
-            <div class="content d-flex flex-column" style="background-color: teal;height: 1400px;">
+            <div class="content d-flex flex-column" style="background-color: #EEF1F6;">
                 <div class="box1 row">
                     <div class="box1Info d-flex flex-column col-6">
                         <div class="InfoHeader row wrap" style="padding: 20px 0 0 50px;">
@@ -48,8 +87,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box1Image col-6">
-                        <img src="noimage.png" alt="">
+                    <div class="box1Image row justify-content-center align-content-center col-6">
+                        <img style="height: 70%;" src="noimage.png" alt="">
                     </div>
                 </div>
                 <div class="box2">
@@ -57,7 +96,7 @@
                         <iframe width="1180" height="664" src="https://www.youtube.com/embed/9cKsq14Kfsw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="box3 d-flex flex-column">
+                <div class="box3 d-flex flex-column" style="background-color: #FFFFFF;">
                     <div class="box3PartOne row" style="padding-top: 20px;">
                         <div class="box3POInfo col-6 wrap " style="padding-left: 50px ;">
                             <h3>Lorem ipsum dolor</h3>
@@ -90,13 +129,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="box4 row justify-content-center" style="background-color:seashell;">
-                    <img style="height: 200px;" src="600px-No_image_availab.png" alt="">
+                <div class="box4 d-flex flex-column" style="background-color:#E9ECF1;">
+                    <div class="row justify-content-center">
+                        <img style="height: 200px;" src="600px-No_image_availab.png" alt="">
+                    </div>
+
                 </div>
             </div>
 
 
-            <div class="footer row" style="background-color: steelblue;height: 200px;"></div>
+            <div class="footer d-flex flex-column" style="background-color: #606F84;height: 110px;">
+                <div class="footerInfo row justify-content-center wrap">
+                    <div class="row justify-content-center" style="width: 30%; text-align: center;">
+                        <h4>Value Proposition for Your Business</h4>
+                    </div>
+                </div>
+                <div class="footerButtom row justify-content-center align-content-start">
+                    <button type="button" class="btn btn-primary">Get</button>
+                </div>
+            </div>
         </div>
 
     </div>
