@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    display: block;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 66px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #C4C4C4;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 2px;
+}
+
+.nav1 {
+    display: flex;
+    padding: 23.56px 0 0 204.5px;
+}
+
+.nav_golovna {
+    width: 98px;
+    height: 18.44px;
+}
+
+.nav_golovna a {
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav_blog {
+    margin-left: 29px;
+    width: 51px;
+    height: 18.44px;
+}
+
+.nav_blog a {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav_contact {
+    margin-left: 38px;
+    width: 184px;
+    height: 18.44px;
+}
+
+.nav_contact a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    color: #000000;
+}
+
+.nav2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav_facebook {
+    width: 30.33px;
+    height: 24.56px;
+    margin: 20.37px 24.17px 0 0;
+    top: 20.37px;
+}
+
+.nav_instagram {
+    width: 30.33px;
+    height: 24.56px;
+    margin: 20.37px 23.73px 0 0;
+}
+
+.nav_twitter {
+    width: 30.33px;
+    height: 24.56px;
+    margin: 20.37px 201px 0 0;
+}
