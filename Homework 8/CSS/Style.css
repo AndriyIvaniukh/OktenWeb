@@ -8,7 +8,8 @@
 .body {
     display: flex;
     flex-direction: column;
-    width: 375px;
+    align-self: center;
+    width: 100%;
 }
 
 .header {
@@ -40,10 +41,10 @@
     align-items: center;
     row-gap: 25px;
     position: absolute;
-    left: -400px;
+    left: -700px;
     top: 120px;
     background-color: #3298F2;
-    width: 100%;
+    width: 375px;
     height: 97vh;
     transition: 500ms;
     padding: 80px;
