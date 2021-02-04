@@ -317,7 +317,7 @@
         // console.log(!!'0');  true
         // console.log(!!'null');    true
         // console.log(!!'undefined');  true
-        // console.log(!!(3/'owu'));    true ??
+        // console.log(!!(3/'owu'));   false
         // console.log((111 > 11 || 45 < 111) ||  !!'0');   true   
         // console.log((!!111 == !!11 || 45 < 111) && (99 > 100 && 45 > 12 ));  false
 
@@ -442,6 +442,142 @@
         //  document.write(str - a + "<br/>");  //15   з стрінга витягнеться числове значення
         //  document.write(str * "2" + "<br/>"); //40  з стрінга витягнеться числове значення
         //  document.write(str / 2 + "<br/>");  //10   з стрінга витягнеться числове значення
+
+
+        // 11. Какие значения выведет в окно консоли следующий фрагмент кода если его поместить в console.log?
+        // parseInt("3.14")  3
+        // parseInt("-7.875") -7
+        // parseInt("435")      435
+        // parseInt("Вася")     Nan
+
+        //     12.  С помощью окна ввода, вызываемого методом prompt, пользователь может ввести данные, которые будут использоваться далее, повторите код ниже
+        // let str = prompt("Enter something", "ho-ho")
+        // console.log(str);
+
+        // 13. С помощью окна ввода, вызываемого методом prompt, сделать сложение двух чисел, а вывод результата при помощи метода alert
+
+        // let mas1 = +prompt('First num');
+        // let mas2 = +prompt('Second num');
+
+        // alert(mas1 + mas2);
+
+
+        //     14. С помощью окна ввода, вызываемого методом prompt, пользователь последовательно выводит имя, 
+        // фамилию и возраст, а вам не обходимо вывести строку такого вида
+        //   Доброго вечера Иван Иванов, мои поздравления что вам 32 , а вывод результата при помощи метода alert
+
+
+        // let mas1 = prompt('First name');
+        // let mas2 = prompt('Second name');
+        // let mas3 = prompt('Age');
+
+        // alert(' Доброго вечера ' + mas1 + ' ' + mas2 + 'мои поздравления что вам ' + mas3);
+
+        //         1. Три різних числа вводяться через prompt().
+        // За допомоги if else вивести іх в порядку зростання. (відсортувати по зростанню)
+
+        // let number1 = +prompt('first number');
+        // let number2 = +prompt('second number');
+        // let number3 = +prompt('third number');
+
+        // if (number1 < number2 && number1 < number3) {
+        //     console.log(number1);
+        //     if (number2 < number3) {
+        //         console.log(number2);
+        //         console.log(number3);
+        //     } else {
+        //         console.log(number3);
+        //         console.log(number2);
+        //     }
+        // } else if (number2 < number1 && number2 < number3) {
+        //     console.log(number2);
+        //     if (number1 < number3) {
+        //         console.log(number1);
+        //         console.log(number3);
+        //     } else {
+        //         console.log(number3);
+        //         console.log(number1);
+        //     }
+        // } else if (number3 < number2 && number3 < number1) {
+        //     console.log(number3);
+        //     if (number2 < number1) {
+        //         console.log(number2);
+        //         console.log(number1);
+        //     } else {
+        //         console.log(number1);
+        //         console.log(number2);
+        //     }
+        // }
+
+
+        //         2.
+        // Все параматры получаем с клавиатуры!!!!
+        // Имитируем поведение пешехода на перекстке.
+        // Если светофор зеленый - вывести "иди".
+        // Если светофор желтый - вывести "подожди".
+        // Если светофор красный - вывести "стой".
+        // Если светофор в аварийном режиме вывести "делай что хочешь"!
+
+        // let color = prompt('enter color');
+
+        // switch (color) {
+        //     case 'red':
+        //         alert('stop');
+        //         break;
+        //     case 'yellow':
+        //         alert('wait');
+        //         break;
+        //     case 'green':
+        //         alert('go');
+        //         break;
+        //     default:
+        //         alert('WTF!');
+        //         break;
+        // }
+
+
+
+        //         Все параметры получаем с клавиатуры!!!!(prompt , confirm)
+        // Создать переменную isRoadClear которая характеризирует наличие на дороге машин.
+        // Улучшаем предыдущее задание.
+        // Если светофор зеленый и машин нет - вывести "иди".
+        // Если светофор зеленый и машины есть  - вывести подожди пока нарушители проедут".
+        // Если светофор желтый и машины есть - вывести "жди".
+        // Если светофор желтый и машин нет - вывести "все рано жди".
+        // Если светофор красный и машин нет- вывести "стой все рано".
+        // Если светофор красный - и машины есть вывести "стой и жди".
+        // Если светофор в аварийном режиме вывести "делай что хочешь"!
+
+
+        // let color = prompt('enter color');
+        // let isRoadClear = confirm('Any cars');
+
+        // switch (color) {
+        //     case 'red':
+        //         if (isRoadClear) {
+        //             alert('стой и жди');
+        //         } else {
+        //             alert('стой все рано');
+        //         }
+        //         break;
+        //     case 'yellow':
+        //         if (isRoadClear) {
+        //             alert('жди');
+        //         } else {
+        //             alert('все рано жди');
+        //         }
+        //         break;
+        //     case 'green':
+        //         if (isRoadClear) {
+        //             alert('подожди пока нарушители проедут');
+        //         } else {
+        //             alert('иди');
+        //         }
+        //         break;
+        //     default:
+        //         alert('делай что хочешь');
+        //         break;
+        // }
     </script>
 </body>
 
