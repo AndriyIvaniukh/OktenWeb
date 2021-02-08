@@ -132,6 +132,72 @@
 
 
         }
+
+        // - Створити порожній масив. Наповнити його 10 елементами (різними за типами) через звернення до конкретних індексів. Вивести в консоль всі його елементи в циклі.
+
+        mas1 = [];
+        mas1[0] = 'sadff';
+        mas1[1] = 'dsf';
+        mas1[2] = 6;
+        mas1[3] = true;
+        mas1[4] = 22;
+        mas1[5] = 33;
+        mas1[6] = false;
+        mas1[7] = 'Olalal';
+        mas1[8] = '43';
+        mas1[9] = 'Kolia';
+
+        for (let i = 0; i < mas1.length; i++) {
+            console.log(mas1[i]);
+        }
+
+
+        // - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+            document.write(i + '<br>');
+        }
+
+        // - Створити цикл for на 100 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+
+        for (let i = 0; i < 100; i++) {
+            console.log(i);
+            document.write(i + '<br>');
+        }
+
+        // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
+
+        for (let i = 0; i < 100; i += 2) {
+            console.log(i);
+            document.write(i + '<br>');
+        }
+
+        // - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
+
+        for (let i = 0; i < 100; i++) {
+            if (i % 2 === 0) {
+                console.log(i);
+                document.write(i + '<br>');
+            }
+        }
+
+        // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
+
+        for (let i = 0; i < 100; i++) {
+            if (i % 2 != 0) {
+                console.log(i);
+                document.write(i + '<br>');
+            }
+        }
+
+        // - Відтворити роботу годинника, відрахувавши 2 хвилини (2 цикли! 1й - хвилини, 2й - секунди)
+
+        for (let minut = 0; minut < 60; minut++) {
+            for (let secund = 0; secund < 60; secund++) {
+                document.write(minut + ":" + secund + "<br>");
+            }
+        }
     </Script>
 </body>
 
