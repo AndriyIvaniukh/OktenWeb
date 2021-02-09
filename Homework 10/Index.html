@@ -22,21 +22,21 @@
         let mas2 = ['Andriy', 'Taras', 'Dmutro', 'Vasyl', 'Mikola'];
         let mas3 = [3, 'Andriy', true, 'Vasyl', 5];
 
-        console.log(mas1);
-        console.log(mas2);
-        console.log(mas3);
+        // console.log(mas1);
+        // console.log(mas2);
+        // console.log(mas3);
 
         // -- Створити пустий масив. Наповнити його будь-якими значеннями звертаючись до конкретного індексу. Вивести в консоль
 
-        let mas4 = [];
+        // let mas4 = [];
 
-        mas4[0] = 'kolia';
-        mas4[1] = 3;
-        mas4[2] = 3.14;
-        mas4[3] = 'andriy';
+        // mas4[0] = 'kolia';
+        // mas4[1] = 3;
+        // mas4[2] = 3.14;
+        // mas4[3] = 'andriy';
 
 
-        console.log(mas4);
+        // console.log(mas4);
 
 
         // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
@@ -78,126 +78,527 @@
 
         // - Створити масив з 10 числових елементів. Вивести в консоль всі його елементи в циклі.
 
-        mas1 = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-        for (let i = 0; i < 10; i++) {
-            console.log(mas1[i]);
-        }
+        // mas1 = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(mas1[i]);
+        // }
 
-        // - Створити масив з 10 строкрових елементів. Вивести в консоль всі його елементи в циклі.
+        // // - Створити масив з 10 строкрових елементів. Вивести в консоль всі його елементи в циклі.
 
-        mas1 = ['Andriy', 'Lesia', 'Ira', 'Petro', 'Misha', 'Olia', 'LOl', 'ksad', 'sdgmdfs', 'soaf'];
-        for (let i = 0; i < 10; i++) {
-            console.log(mas1[i]);
-        }
+        // mas1 = ['Andriy', 'Lesia', 'Ira', 'Petro', 'Misha', 'Olia', 'LOl', 'ksad', 'sdgmdfs', 'soaf'];
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(mas1[i]);
+        // }
 
-        // - Створити масив з 10 елементів будь-якого типу. Вивести в консоль всі його елементи в циклі.
-
-
-        mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', true, 'Vasyl', 5];
-        for (let i = 0; i < 10; i++) {
-            console.log(mas1[i]);
-        }
-
-        // - Створити масив з 10 елементів числового, стірчкового і булевого типу. За допомогою if та typeof вивести тільки булеві елементи
-
-        mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', false, 'Vasyl', 5];
-        for (let i = 0; i < 10; i++) {
-
-            if (typeof(mas1[i]) === "boolean") {
-                console.log(mas1[i]);
-            }
+        // // - Створити масив з 10 елементів будь-якого типу. Вивести в консоль всі його елементи в циклі.
 
 
-        }
+        // mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', true, 'Vasyl', 5];
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(mas1[i]);
+        // }
+
+        // // - Створити масив з 10 елементів числового, стірчкового і булевого типу. За допомогою if та typeof вивести тільки булеві елементи
+
+        // mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', false, 'Vasyl', 5];
+        // for (let i = 0; i < 10; i++) {
+
+        //     if (typeof(mas1[i]) === "boolean") {
+        //         console.log(mas1[i]);
+        //     }
+
+
+        // }
 
 
 
-        // - Створити масив з 10 елементів числового, стірчкового і булевого типу. За допомогою if та typeof вивести тільки числові елементи
+        // // - Створити масив з 10 елементів числового, стірчкового і булевого типу. За допомогою if та typeof вивести тільки числові елементи
 
-        mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', true, 'Vasyl', 5];
-        for (let i = 0; i < 10; i++) {
-            if (typeof(mas1[i]) === "number") {
-                console.log(mas1[i]);
-            }
-        }
+        // mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', true, 'Vasyl', 5];
+        // for (let i = 0; i < 10; i++) {
+        //     if (typeof(mas1[i]) === "number") {
+        //         console.log(mas1[i]);
+        //     }
+        // }
 
-        // - Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки рядкові елементи
+        // // - Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки рядкові елементи
 
-        mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', false, 'Vasyl', 5];
-        for (let i = 0; i < 10; i++) {
+        // mas1 = [3, 'Andriy', true, 'Vasyl', 5, 3, 'Andriy', false, 'Vasyl', 5];
+        // for (let i = 0; i < 10; i++) {
 
-            if (typeof(mas1[i]) === "string") {
-                console.log(mas1[i]);
-            }
+        //     if (typeof(mas1[i]) === "string") {
+        //         console.log(mas1[i]);
+        //     }
 
 
-        }
+        // }
 
-        // - Створити порожній масив. Наповнити його 10 елементами (різними за типами) через звернення до конкретних індексів. Вивести в консоль всі його елементи в циклі.
+        // // - Створити порожній масив. Наповнити його 10 елементами (різними за типами) через звернення до конкретних індексів. Вивести в консоль всі його елементи в циклі.
+
+        // mas1 = [];
+        // mas1[0] = 'sadff';
+        // mas1[1] = 'dsf';
+        // mas1[2] = 6;
+        // mas1[3] = true;
+        // mas1[4] = 22;
+        // mas1[5] = 33;
+        // mas1[6] = false;
+        // mas1[7] = 'Olalal';
+        // mas1[8] = '43';
+        // mas1[9] = 'Kolia';
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     console.log(mas1[i]);
+        // }
+
+
+        // // - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(i);
+        //     document.write(i + '<br>');
+        // }
+
+        // // - Створити цикл for на 100 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+
+        // for (let i = 0; i < 100; i++) {
+        //     console.log(i);
+        //     document.write(i + '<br>');
+        // }
+
+        // // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
+
+        // for (let i = 0; i < 100; i += 2) {
+        //     console.log(i);
+        //     document.write(i + '<br>');
+        // }
+
+        // // - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
+
+        // for (let i = 0; i < 100; i++) {
+        //     if (i % 2 === 0) {
+        //         console.log(i);
+        //         document.write(i + '<br>');
+        //     }
+        // }
+
+        // // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
+
+        // for (let i = 0; i < 100; i++) {
+        //     if (i % 2 != 0) {
+        //         console.log(i);
+        //         document.write(i + '<br>');
+        //     }
+        // }
+
+        // // - Відтворити роботу годинника, відрахувавши 2 хвилини (2 цикли! 1й - хвилини, 2й - секунди)
+
+        // for (let minut = 0; minut < 2; minut++) {
+        //     for (let secund = 0; secund < 60; secund++) {
+        //         document.write(minut + ":" + secund + "<br>");
+        //     }
+        // }
+
+        // // - Відтворити роботу годинника, відрахувавши  2 години  (3 цикли! 1й - години, 2й - хвилини, 3й - секунди)
+
+        // for (let hour = 0; hour < 2; hour++) {
+        //     for (let minut = 0; minut < 60; minut++) {
+        //         for (let secund = 0; secund < 60; secund++) {
+        //             document.write(hour + ":" + minut + ":" + secund + "<br>");
+        //         }
+        //     }
+        // }
+
+        // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
+
+        // mas1 = ['a', 'b', 'c'];
+        // let str = '';
+        // for (let i = 0; i < mas1.length; i++) {
+        //     str += mas1[i];
+        // }
+
+        // console.log(str);
+
+        // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+
+        // mas1 = ['a', 'b', 'c'];
+        // let str = '';
+        // let i = 0;
+
+        // while (i < mas1.length) {
+        //     str += mas1[i];
+        //     i++;
+        // }
+        // console.log(str);
+
+
+        // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
+
+        // mas1 = ['a', 'b', 'c'];
+        // let str = '';
+
+        // for (massive of mas1) {
+        //     str += massive;
+        // }
+
+        // console.log(str);
+
+
+        //- Дан масив ['a', 'b', 'c']. Додайте йому в кінець елементи 1, 2, 3 за допомогою циклу.
+
+        // mas1 = ['a', 'b', 'c'];
+
+        // for (let i = 1; i <= 3; i++) {
+        //     mas1.push(i);
+        // }
+
+        // console.log(mas1);
+
+        // - Дан масив [1, 2, 3]. Зробіть з нього новий масив [3, 2, 1].
+
+        // mas1 = [1, 2, 3];
+        // mas2 = [];
+
+        // for (let i = (mas1.length - 1); i >= 0; i--) {
+        //     mas2.push(mas1[i]);
+        // }
+
+        // console.log(mas2);
+
+        // - Дан масив [1, 2, 3]. Додайте йому в кінець елементи 4, 5, 6.
+
+        // mas1 = [1, 2, 3];
+
+        // for (let i = 4; i <= 6; i++) {
+        //     mas1.push(i);
+        // }
+
+        // console.log(mas1);
+
+        // - Дан масив [1, 2, 3]. Додайте йому в початок елементи 4, 5, 6.
+
+
+        // mas1 = [1, 2, 3];
+
+        // for (let i = 6; i >= 4; i--) {
+        //     mas1.unshift(i);
+        // }
+
+        // console.log(mas1);
+
+        //
+
+        // - Дан масив ['js', 'css', 'jq']. Виведіть на екран перший елемент за допомогою shift()
+
+        // mas1 = ['js', 'css', 'jq'];
+
+        // console.log(mas1.shift())
+
+
+        // - Дан масив ['js', 'css', 'jq']. Виведіть на екран останній елемент за допомогою pop()
+
+
+        // mas1 = ['js', 'css', 'jq'];
+
+        // console.log(mas1.pop())
+
+
+        // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції slice перетворіть масив в [4, 5].
+
+        // mas1 = [1, 2, 3, 4, 5];
+        // mas1 = mas1.slice(3, 5);
+
+        // console.log(mas1);
+
+
+        // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції slice перетворіть масив в [1,2].
+
+        // mas1 = [1, 2, 3, 4, 5];
+        // mas1 = mas1.slice(0, 2);
+
+        // console.log(mas1);
+
+        // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice перетворіть масив в [1, 4, 5].
+
+        // mas1 = [1, 2, 3, 4, 5];
+        // mas1.splice(1, 2);
+
+        // console.log(mas1);
+
+        // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив [1, 2, 3, 'a', 'b', 'c', 4, 5].
+
+        // mas1 = [1, 2, 3, 4, 5];
+        // mas1.splice(3, 0, 'a', 'b', 'c')
+
+        // console.log(mas1);
+
+        // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
+
+        // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
+
+        // mas1 = [];
+
+        // for (let i = 1; i <= 10; i++) {
+        //     mas1.push(i);
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     if (mas1[i] % 2 === 0) {
+        //         console.log(mas1[i]);
+        //     }
+        // }
+
+        // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу та push () скопіювати значення одного масиву в інший
+
+        // mas1 = [];
+        // mas2 = [];
+
+        // for (let i = 1; i <= 10; i++) {
+        //     mas1.push(i);
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     mas2.push(mas1[i]);
+        // }
+
+        // console.log(mas2);
+
+        // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
+
+        // mas1 = [];
+        // mas2 = [];
+
+        // for (let i = 1; i <= 10; i++) {
+        //     mas1.push(i);
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     mas2[i] = mas1[i];
+        // }
+
+        // console.log(mas2);
+
+
+        // зробити масив з 10 чисел [2,17,13,6,22,31,45,66,100,-18]та:
+        // 1. перебрати його циклом while
+        // 2. перебрати його циклом for
+        // 3. перебрати циклом while та вивести  числа тільки з непарним індексом
+        // 4. перебрати циклом for та вивести  числа тільки з непарним індексом
+        // 5. перебрати циклом while та вивести  числа тільки парні  значення
+        // 6. перебрати циклом for та вивести  числа тільки парні  значення
+        // 7. замінити кожне число кратне 3 на слово "okten"
+        // 8. вивести масив в зворотньому порядку.
+        // 9. всі попередні завдання (окрім 8), але в зворотньому циклі (с заду на перед)/  
+
+        // mas1 = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
+
+        // let i = 0;
+
+        // while (i < mas1.length) {
+        //     console.log(mas1[i]);
+        //     i++;
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     console.log(mas1[i]);
+        // }
+
+        // i = 0;
+        // while (i < mas1.length) {
+        //     if (i % 2 != 0) {
+        //         console.log(mas1[i]);
+        //     }
+        //     i++;
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     if (i % 2 != 0) {
+        //         console.log(mas1[i]);
+        //     }
+        // }
+
+        // i = 0;
+        // while (i < mas1.length) {
+        //     if (i % 2 === 0) {
+        //         console.log(mas1[i]);
+        //     }
+        //     i++;
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     if (i % 2 === 0) {
+        //         console.log(mas1[i]);
+        //     }
+        // }
+
+        // for (let i = 0; i < mas1.length; i++) {
+        //     if (mas1[i] % 3 === 0) {
+        //         mas1[i] = 'okten';
+        //     }
+        // }
+        // console.log(mas1);
+
+        // console.log(mas1.reverse());
+
+        //reverse
+
+
+        // mas1 = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
+
+        // let i = (mas1.length - 1);
+
+        // while (i >= 0) {
+        //     console.log(mas1[i]);
+        //     i--;
+        // }
+
+        // for (let i = (mas1.length - 1); i >= 0; i--) {
+        //     console.log(mas1[i]);
+        // }
+
+        // i = (mas1.length - 1);
+        // while (i >= 0) {
+        //     if (i % 2 != 0) {
+        //         console.log(mas1[i]);
+        //     }
+        //     i--;
+        // }
+
+        // for (let i = (mas1.length - 1); i >= 0; i--) {
+        //     if (i % 2 != 0) {
+        //         console.log(mas1[i]);
+        //     }
+        // }
+
+        // i = (mas1.length - 1);
+        // while (i >= 0) {
+        //     if (i % 2 === 0) {
+        //         console.log(mas1[i]);
+        //     }
+        //     i--;
+        // }
+
+        // for (let i = (mas1.length - 1); i >= 0; i--) {
+        //     if (i % 2 === 0) {
+        //         console.log(mas1[i]);
+        //     }
+        // }
+
+        // for (let i = (mas1.length - 1); i >= 0; i--) {
+        //     if (mas1[i] % 3 === 0) {
+        //         mas1[i] = 'okten';
+        //     }
+        // }
+        // console.log(mas1);
+
+
+        // 10
+        //  створити пустий масив та :
+        // - заповнити його 50 парними числами за допомоги циклу.
+        // - заповнити його 50 непарними числами за допомоги циклу.
+
+        // mas1 = [];
+
+        // while (mas1.length <= 50) {
+        //     let a = Math.floor(Math.random() * 99);
+        //     if (a % 2 === 0) {
+        //         mas1.push(a);
+        //     }
+        // }
+
+        // console.log(mas1);
+
+        // mas2 = [];
+        // while (mas2.length <= 50) {
+        //     let a = Math.floor(Math.random() * 99);
+        //     if (a % 2 != 0) {
+        //         mas2.push(a);
+        //     }
+        // }
+        // console.log(mas2);
+
+
+        //  3. используя Math.random заполнить массив из ???(сколько хотите) элементов.
+        //  диапазон рандома 8 до 732. (но сначала пробуйте БЕЗ ДИАПАЗОНА!)
 
         mas1 = [];
-        mas1[0] = 'sadff';
-        mas1[1] = 'dsf';
-        mas1[2] = 6;
-        mas1[3] = true;
-        mas1[4] = 22;
-        mas1[5] = 33;
-        mas1[6] = false;
-        mas1[7] = 'Olalal';
-        mas1[8] = '43';
-        mas1[9] = 'Kolia';
 
-        for (let i = 0; i < mas1.length; i++) {
+        while (mas1.length <= 20) {
+            let a = Math.floor(Math.random() * (732 - 8)) + 8;
+
+            mas1.push(a);
+        }
+        console.log(mas1);
+
+        //  2. вывести на консоль  каждый третий елемент
+        for (let i = 0; i < mas1.length; i += 3) {
             console.log(mas1[i]);
         }
 
+        //3. вывести на консоль  каждый третий елемент но при условии что его значение является парным.
+        for (let i = 0; i < mas1.length; i += 3) {
+            if (mas1[i] % 2 === 0) {
+                console.log(mas1[i])
+            };
+        }
 
-        // - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+        //         4. вывести на консоль  каждый третий елемент
+        //  но при условии что он имеет парное значение и
+        //  записать их в другой массив.
+
+        mas2 = [];
+        for (let i = 0; i < mas1.length; i += 3) {
+            if (mas1[i] % 2 === 0) {
+                console.log(mas1[i])
+                mas2.push(mas1[i]);
+            };
+        }
+        console.log(mas2);
+
+        // 5. Вывести каждый елемент массива у которого соседний с права элемент - парный
+        for (let i = 1; i < mas1.length; i++) {
+            if (mas1[i] % 2 === 0) {
+                console.log(mas1[i - 1])
+            };
+        }
+
+
+        //  5 масив з числами [100,250,50,168,120,345,188], Які характеризують вартість окремої покупки. обрахувати середній чек.
+
+        mas1 = [100, 250, 50, 168, 120, 345, 188];
+        let sum = 0;
+        for (let i = 0; i < mas1.length; i++) {
+            sum += mas1[i];
+        }
+        sum /= mas1.length;
+
+        console.log(sum);
+
+        //3 створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
+
+        mas1 = [];
+        mas2 = [];
 
         for (let i = 0; i < 10; i++) {
-            console.log(i);
-            document.write(i + '<br>');
+            mas1[i] = Math.floor(Math.random() * 150);
+            mas2.push(mas1[i] * 5);
         }
+        console.log(mas1);
+        console.log(mas2);
 
-        // - Створити цикл for на 100 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+        // 4 створити масив з будь якими значеннями (стрінги, числа, і тд...). пройтись по ньому, і якщо об'єкт є числом, додати його в інший масив.
 
-        for (let i = 0; i < 100; i++) {
-            console.log(i);
-            document.write(i + '<br>');
-        }
 
-        // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
+        mas1 = ['asd', true, 5, false, 2, false, 'marakas', 15, '6'];
+        mas2 = [];
 
-        for (let i = 0; i < 100; i += 2) {
-            console.log(i);
-            document.write(i + '<br>');
-        }
-
-        // - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
-
-        for (let i = 0; i < 100; i++) {
-            if (i % 2 === 0) {
-                console.log(i);
-                document.write(i + '<br>');
+        for (massive of mas1) {
+            if (typeof massive == "number") {
+                mas2.push(massive);
             }
         }
-
-        // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
-
-        for (let i = 0; i < 100; i++) {
-            if (i % 2 != 0) {
-                console.log(i);
-                document.write(i + '<br>');
-            }
-        }
-
-        // - Відтворити роботу годинника, відрахувавши 2 хвилини (2 цикли! 1й - хвилини, 2й - секунди)
-
-        for (let minut = 0; minut < 60; minut++) {
-            for (let secund = 0; secund < 60; secund++) {
-                document.write(minut + ":" + secund + "<br>");
-            }
-        }
+        console.log(mas1);
+        console.log(mas2);
     </Script>
 </body>
 
