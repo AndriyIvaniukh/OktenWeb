@@ -201,13 +201,38 @@
 
         // // - Відтворити роботу годинника, відрахувавши  2 години  (3 цикли! 1й - години, 2й - хвилини, 3й - секунди)
 
+        // let set_hour = +prompt('Enter hour');
+        // let set_minut = +prompt('enter minutes');
+        // let set_second = +prompt('enter second');
+
         // for (let hour = 0; hour < 2; hour++) {
-        //     for (let minut = 0; minut < 60; minut++) {
-        //         for (let secund = 0; secund < 60; secund++) {
-        //             document.write(hour + ":" + minut + ":" + secund + "<br>");
+        //     if (hour === set_hour) {
+        //         for (let minut = 0; minut < 60; minut++) {
+        //             if (minut === set_minut) {
+        //                 for (let second = 0; second < 60; second++) {
+        //                     if (set_second === second) {
+        //                         document.write(hour + ":" + minut + ":" + second + "<br>");
+        //                     }
+        //                 }
+        //             }
         //         }
         //     }
         // }
+
+        // 
+
+        let set_hour = +prompt('Enter hour');
+        let set_minut = +prompt('enter minutes');
+        let set_second = +prompt('enter second');
+        let bool = true;
+
+        for (let hour = 0; hour <= set_hour; hour++) {
+            for (let minut = 0; minut <= set_minut; minut++) {
+                for (let second = 0; second <= set_second; second++) {
+                    document.write(hour + ":" + minut + ":" + second + "<br>");
+                }
+            }
+        }
 
         // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
 
