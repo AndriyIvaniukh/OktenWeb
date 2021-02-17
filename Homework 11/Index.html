@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-around;
+            column-gap: 50px;
+        }
+        
+        .cartuun {
+            width: 255px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        fetch('https://api.sampleapis.com/cartoons/cartoons2D')
+            .then(responce => responce.json())
+            .then(cartuuns => {
+                for (let cartuun of cartuuns) {
+                    document.write(`
+                        <div class="cartuun">
+                            <h2>${cartuun.title}</h2>
+                            <h3>${cartuun.year}</h3>
+                            <h3>${cartuun.creator}</h3>
+                            <h4>${cartuun.episodes}</h4>
+                            <img src="${cartuun.image}"  height="400px"  width="250px" alt="">
+                        </div>
+                    `);
+                }
+            });
+    </script>
+</body>
+
+</html>
