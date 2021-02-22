@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="content"></div>
+    <!-- <div id="content"></div>
     <h1>Правила бойцовского клуба</h1>
     <div id="wrap">
         <div class="rules rule1">
@@ -46,7 +46,7 @@
             <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
             <p>Новичок обязан принять бой.</p>
         </div>
-    </div>
+    </div> -->
 
     <script>
         // - создать 5 объектов. В каждом объекте не менее 3х полей. Все объекты разные по набору полей. (Т.е поле name  должно присутствовать только 1 раз в одном объекте )
@@ -967,6 +967,256 @@
         // -Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
         // При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
         // Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
+
+
+        // let rules = [{
+        //         title: 'Первое правило Бойцовского клуба.',
+        //         body: 'Никому не рассказывать о Бойцовском клубе.'
+        //     }, {
+        //         title: 'Второе правило Бойцовского клуба.',
+        //         body: 'Никогда никому не рассказывать о Бойцовском клубе.'
+        //     }, {
+        //         title: 'Третье правило Бойцовского клуба.',
+        //         body: 'В схватке участвуют только двое.'
+        //     }, {
+        //         title: 'Четвертое правило Бойцовского клуба.',
+        //         body: 'Не более одного поединка за один раз.'
+        //     }, {
+        //         title: 'Пятое правило Бойцовского клуба.',
+        //         body: 'Бойцы сражаются без обуви и голые по пояс.'
+        //     }, {
+        //         title: 'Шестое правило Бойцовского клуба.',
+        //         body: 'Поединок продолжается столько, сколько потребуется.'
+        //     }, {
+        //         title: 'Седьмое правило Бойцовского клуба.',
+        //         body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
+        //     }, {
+        //         title: 'Восьмое и последнее правило Бойцовского клуба.',
+        //         body: 'Новичок обязан принять бой.'
+        //     },
+
+        // ];
+
+        // // <div id="wrap">
+        // // <div class="rules rule1">
+        // //     <h2>Первое правило Бойцовского клуба.</h2>
+        // //     <p>Никому не рассказывать о Бойцовском клубе.</p>
+        // // </div>
+
+        // let wrap = document.createElement("div");
+        // wrap.id = 'wrap';
+
+        // for (let i = 0; i < rules.length; i++) {
+        //     let div = document.createElement("div");
+        //     div.className = `rules rule${i+1}`;
+        //     let h2 = document.createElement("h2");
+        //     h2.innerText = rules[i].title;
+        //     let p = document.createElement("p");
+        //     p.innerText = rules[i].body;
+        //     div.appendChild(h2);
+        //     div.appendChild(p);
+
+        //     wrap.appendChild(div);
+        // }
+
+
+
+
+        // document.body.appendChild(wrap);
+
+        // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі users. За допомогою document.createElement вивести їх в браузер.
+        //  Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт в свій блок (блок в блоці).
+
+        // fetch('https://jsonplaceholder.typicode.com/users')
+        //     .then(result => result.json())
+        //     .then(result => {
+        //         let div = document.createElement("div");
+        //         for (res of result) {
+        //             let div_ = document.createElement("div");
+        //             let div_id = document.createElement("div");
+        //             let div_name = document.createElement("div");
+        //             let div_username = document.createElement("div");
+        //             let div_email = document.createElement("div");
+        //             div_id.innerText = res.id;
+        //             div_name.innerText = res.name;
+        //             div_username.innerText = res.username;
+        //             div_email.innerText = res.email;
+        //             div_.appendChild(div_id);
+        //             div_.appendChild(div_name);
+        //             div_.appendChild(div_username);
+        //             div_.appendChild(div_email);
+        //             div.appendChild(div_);
+
+        //         }
+        //         document.body.appendChild(div);
+        //     })
+
+
+        // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі posts. За допомогою document.createElement вивести їх в браузер.
+        // Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
+
+
+        // fetch('https://jsonplaceholder.typicode.com/posts')
+        //     .then(result => result.json())
+        //     .then(result => {
+        //         let div = document.createElement("div");
+        //         for (res of result) {
+        //             let div_ = document.createElement("div");
+        //             let div_userid = document.createElement("div");
+        //             let div_id = document.createElement("div");
+        //             let div_title = document.createElement("div");
+        //             let div_body = document.createElement("div");
+        //             if (res.userid) {
+        //                 div_userid.innerText = res.userId;
+        //             }
+        //             if (res.id) {
+        //                 div_id.innerText = res.id;
+        //             }
+        //             if (res.title) {
+        //                 div_title.innerText = res.title;
+        //             }
+        //             if (res.body) {
+        //                 div_userid.innerText = res.body;
+        //             }
+        //             
+        //             div_.appendChild(div_userid);
+        //             div_.appendChild(div_id);
+        //             div_.appendChild(div_title);
+        //             div_.appendChild(div_body);
+        //             div.appendChild(div_);
+
+        //         }
+        //         document.body.appendChild(div);
+        //     })
+
+
+
+        // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі comments. За допомогою document.createElement вивести їх в браузер.
+        // Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
+
+        // fetch('https://jsonplaceholder.typicode.com/comments')
+        //     .then(result => result.json())
+        //     .then(result => {
+        //         let div = document.createElement("div");
+        //         for (res of result) {
+        //             let div_ = document.createElement("div");
+        //             let div_postId = document.createElement("div");
+        //             let div_id = document.createElement("div");
+        //             let div_name = document.createElement("div");
+        //             let div_email = document.createElement("div");
+        //             let div_body = document.createElement("div");
+        //             if (res.postId) {
+        //                 div_postId.innerText = res.postId;
+        //             }
+        //             if (res.id) {
+        //                 div_id.innerText = res.id;
+        //             }
+        //             if (res.name) {
+        //                 div_name.innerText = res.name;
+        //             }
+        //             if (res.email) {
+        //                 div_email.innerText = res.email;
+        //             }
+        //             if (res.body) {
+        //                 div_body.innerText = res.body;
+        //             }
+
+        //             div_.appendChild(div_postId);
+        //             div_.appendChild(div_id);
+        //             div_.appendChild(div_name);
+        //             div_.appendChild(div_email);
+        //             div_.appendChild(div_body);
+        //             div.appendChild(div_);
+
+        //         }
+        //         document.body.appendChild(div);
+        //     })
+
+
+
+        // ****** при помощи fetch (как в примере) получить от jsonplaceholder все posts. Внутри последнего then() сделать еще один fetch который сделает запрос
+        //  и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. Подсказка : в каждом comment есть поле postId 
+        // которое определяет какой комментарий принадлежит какому посту
+
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(result => result.json())
+            .then(result => {
+                let div = document.createElement("div");
+                for (res of result) {
+                    let div_ = document.createElement("div");
+                    // let div_userid = document.createElement("div");
+                    // let div_id = document.createElement("div");
+                    // let div_title = document.createElement("div");
+                    // let div_body = document.createElement("div");
+                    // if (res.userId) {
+                    //     div_userid.innerText = res.userId;
+                    // }
+                    // if (res.id) {
+                    //     div_id.innerText = res.id;
+                    // }
+                    // if (res.title) {
+                    //     div_title.innerText = res.title;
+                    // }
+                    // if (res.body) {
+                    //     div_body.innerText = res.body;
+                    // }
+
+                    // div_.appendChild(div_userid);
+                    // div_.appendChild(div_id);
+                    // div_.appendChild(div_title);
+                    // div_.appendChild(div_body);
+
+
+                    let div_post_ = document.createElement("div");
+                    fetch('https://jsonplaceholder.typicode.com/comments')
+                        .then(r => r.json())
+                        .then(r => {
+                            let div__ = document.createElement("div");
+                            for (r_post of r) {
+                                let div_post = document.createElement("div");
+                                if (r_post.postId === res.id) {
+                                    document.write(res.id);
+                                    document.write(r_post.postId);
+
+                                    let div_postId = document.createElement("div");
+                                    let div_id_post = document.createElement("div");
+                                    let div_name = document.createElement("div");
+                                    let div_email = document.createElement("div");
+                                    let div_post_body = document.createElement("div");
+                                    if (r_post.postId) {
+                                        div_postId.innerText = r_post.postId;
+                                    }
+                                    if (r_post.id) {
+                                        div_id_post.innerText = r_post.id;
+                                    }
+                                    if (r_post.name) {
+                                        div_name.innerText = r_post.name;
+                                    }
+                                    if (r_post.email) {
+                                        div_email.innerText = r_post.email;
+                                    }
+                                    if (r_post.body) {
+                                        div_post_body.innerText = r_post.body;
+                                    }
+                                    div_post.appendChild(div_postId);
+                                    div_post.appendChild(div_id_post);
+                                    div_post.appendChild(div_name);
+                                    div_post.appendChild(div_email);
+                                    div_post.appendChild(div_post_body);
+                                }
+                                div__.appendChild(div_post);
+                            }
+                            div_post_.appendChild(div__);
+
+                        })
+                    div_.appendChild(div_post_);
+
+                    div.appendChild(div_);
+
+
+                }
+                document.body.appendChild(div);
+            })
     </script>
 </body>
 
