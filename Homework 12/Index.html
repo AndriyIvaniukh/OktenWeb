@@ -1138,85 +1138,60 @@
         //  и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. Подсказка : в каждом comment есть поле postId 
         // которое определяет какой комментарий принадлежит какому посту
 
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(result => result.json())
-            .then(result => {
-                let div = document.createElement("div");
-                for (res of result) {
-                    let div_ = document.createElement("div");
-                    // let div_userid = document.createElement("div");
-                    // let div_id = document.createElement("div");
-                    // let div_title = document.createElement("div");
-                    // let div_body = document.createElement("div");
-                    // if (res.userId) {
-                    //     div_userid.innerText = res.userId;
-                    // }
-                    // if (res.id) {
-                    //     div_id.innerText = res.id;
-                    // }
-                    // if (res.title) {
-                    //     div_title.innerText = res.title;
-                    // }
-                    // if (res.body) {
-                    //     div_body.innerText = res.body;
-                    // }
-
-                    // div_.appendChild(div_userid);
-                    // div_.appendChild(div_id);
-                    // div_.appendChild(div_title);
-                    // div_.appendChild(div_body);
+        // fetch('https://jsonplaceholder.typicode.com/posts')
+        //     .then(result => result.json())
+        //     .then(result => {
+        //         let div = document.createElement("div");
+        //         for (let res of result) {
+        //             let div_ = document.createElement("div");
+        //             // let div_userid = document.createElement("div");
+        //             let div_id = document.createElement("div");
+        //             let div_title = document.createElement("div");
+        //             let div_body = document.createElement("div");
+        //             // div_userid.innerText = res.userId;
+        //             div_id.innerText = res.id;
+        //             div_title.innerText = res.title;
+        //             div_body.innerText = res.body;
+        //             // div_.appendChild(div_userid);
+        //             div_.appendChild(div_id);
+        //             div_.appendChild(div_title);
+        //             div_.appendChild(div_body);
 
 
-                    let div_post_ = document.createElement("div");
-                    fetch('https://jsonplaceholder.typicode.com/comments')
-                        .then(r => r.json())
-                        .then(r => {
-                            let div__ = document.createElement("div");
-                            for (r_post of r) {
-                                let div_post = document.createElement("div");
-                                if (r_post.postId === res.id) {
-                                    document.write(res.id);
-                                    document.write(r_post.postId);
+        //             let div_post_ = document.createElement("div");
+        //             fetch('https://jsonplaceholder.typicode.com/comments')
+        //                 .then(r => r.json())
+        //                 .then(r => {
+        //                     let div__ = document.createElement("div");
+        //                     for (let r_post of r) {
+        //                         let div_post = document.createElement("div");
+        //                         if (r_post.postId === res.id) {
+        //                             let div_id_post = document.createElement("div");
+        //                             let div_name = document.createElement("div");
+        //                             let div_email = document.createElement("div");
+        //                             let div_post_body = document.createElement("div");
+        //                             div_id_post.innerText = r_post.id;
+        //                             div_name.innerText = r_post.name;
+        //                             div_email.innerText = r_post.email;
+        //                             div_post_body.innerText = r_post.body;
+        //                             div_post.appendChild(div_id_post);
+        //                             div_post.appendChild(div_name);
+        //                             div_post.appendChild(div_email);
+        //                             div_post.appendChild(div_post_body);
+        //                         }
+        //                         div__.appendChild(div_post);
+        //                     }
+        //                     div_post_.appendChild(div__);
 
-                                    let div_postId = document.createElement("div");
-                                    let div_id_post = document.createElement("div");
-                                    let div_name = document.createElement("div");
-                                    let div_email = document.createElement("div");
-                                    let div_post_body = document.createElement("div");
-                                    if (r_post.postId) {
-                                        div_postId.innerText = r_post.postId;
-                                    }
-                                    if (r_post.id) {
-                                        div_id_post.innerText = r_post.id;
-                                    }
-                                    if (r_post.name) {
-                                        div_name.innerText = r_post.name;
-                                    }
-                                    if (r_post.email) {
-                                        div_email.innerText = r_post.email;
-                                    }
-                                    if (r_post.body) {
-                                        div_post_body.innerText = r_post.body;
-                                    }
-                                    div_post.appendChild(div_postId);
-                                    div_post.appendChild(div_id_post);
-                                    div_post.appendChild(div_name);
-                                    div_post.appendChild(div_email);
-                                    div_post.appendChild(div_post_body);
-                                }
-                                div__.appendChild(div_post);
-                            }
-                            div_post_.appendChild(div__);
+        //                 })
+        //             div_.appendChild(div_post_);
 
-                        })
-                    div_.appendChild(div_post_);
-
-                    div.appendChild(div_);
+        //             div.appendChild(div_);
 
 
-                }
-                document.body.appendChild(div);
-            })
+        //         }
+        //         document.body.appendChild(div);
+        //     })
     </script>
 </body>
 
