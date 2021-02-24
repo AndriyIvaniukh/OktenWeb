@@ -246,21 +246,325 @@
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
 
+// let array = [0, 0, 0, 0, 0, 0, 0, 1, 0];
 
-let mas = [2, 0, 6, 0, 8, 0, 5, 3];
+// function zeroMove(a) {
+//     let mas = [];
+//     mas = a;
+//     for (let i = 0; i < mas.length; i++) {
+//         if (mas[i] === 0 && mas[i + 1]) {
+//             mas.push(mas[i]);
+//             mas[i] = mas[i + 1];
+//             mas.splice((i + 1), 1);
+//             i = i - 2;
+//         }
+//     }
+//     return mas;
+// }
 
 
-function change(mas, i) {
+// console.log(zeroMove(array));
 
-    if (mas[i] && mas[i + 1]) {
-        let x = mas[i + 1];
-        mas[i + 1] = mas[i];
-        mas[i] = x;
-    } else if (mas[i] && !mas[i + 1]) {
-        mas[i + 1] = mas[i];
-        mas[i] = 0;
+// Створити функцію яка :
+// - Додає в боді блок з текстом "Hello owu"
+
+// function printTextBody(a) {
+//     document.body.innerText = a;
+// }
+
+// printTextBody("Hello owu");
+
+// - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+
+
+// function printTextBody(type, a) {
+//     let t = document.createElement(`${type}`);
+//     t.innerText = a;
+//     document.body.appendChild(t);
+// }
+
+// printTextBody('div', 'Hello owu');
+
+// - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+// Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці
+
+// let cars = [{
+//         brand: 'BMW',
+//         model: '528',
+//         year: 2016,
+//         color: 'black'
+//     },
+
+//     {
+//         brand: 'audi',
+//         model: 'a4',
+//         year: 2018,
+//         color: 'red'
+//     },
+
+//     {
+//         brand: 'Mercedes',
+//         model: 'e200',
+//         year: 2020,
+//         color: 'yellow'
+//     },
+
+//     {
+//         brand: 'VW',
+//         model: 'Golf',
+//         year: 2014,
+//         color: 'gray'
+//     },
+
+//     {
+//         brand: 'Porshe',
+//         model: 'carrera',
+//         year: 2021,
+//         color: 'yellow'
+//     },
+//     {
+//         brand: 'Opel',
+//         model: 'Insignia',
+//         year: 2013,
+//         color: 'gray'
+//     },
+//     {
+//         brand: 'Citroen',
+//         model: 'c3',
+//         year: 2011,
+//         color: 'blue'
+//     },
+//     {
+//         brand: 'Peugeot',
+//         model: '308',
+//         year: 2014,
+//         color: 'gray'
+//     },
+//     {
+//         brand: 'renault',
+//         model: 'daster',
+//         year: 2018,
+//         color: 'brown'
+//     },
+//     {
+//         brand: 'VW',
+//         model: 'Golf',
+//         year: 2013,
+//         color: 'gray'
+//     },
+// ];
+
+// function printCars(cars) {
+//     let div = document.createElement('div');
+//     for (let car of cars) {
+//         let div_ = document.createElement('div');
+//         div_.innerText = ` ${car.brand}, ${car.model}, ${car.year}, ${car.color}`;
+//         console.log(car.brand);
+//         div.appendChild(div_);
+//     }
+
+//     document.body.appendChild(div);
+// }
+
+// printCars(cars);
+
+
+// // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+// Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
+// Для кожної властивості створити всередені блока автомоблія свій блок
+
+// function printCars(cars) {
+//     let div = document.createElement('div');
+//     for (let car of cars) {
+//         let div_ = document.createElement('div');
+//         let div_brand = document.createElement('div');
+//         let div_model = document.createElement('div');
+//         let div_year = document.createElement('div');
+//         let div_color = document.createElement('div');
+//         div_brand.innerText = car.brand;
+//         div_model.innerText = car.model;
+//         div_year.innerText = car.year;
+//         div_color.innerText = car.color;
+//         div_.appendChild(div_brand);
+//         div_.appendChild(div_model);
+//         div_.appendChild(div_year);
+//         div_.appendChild(div_color);
+//         div.appendChild(div_);
+//     }
+
+//     document.body.appendChild(div);
+// }
+
+// printCars(cars);
+
+// (на основі минулого ДЗ)
+// **- функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
+// та повертає масив цих з'єднаних об'єктів.
+// Приклад масивів:
+//             let usersWithId = [{id: 1, name: 'vasya', age: 31, status: false}, {id: 2, name: 'petya', age: 30, status: true}, {id: 3, name: 'kolya', age: 29, status: true}, {id: 4, name: 'olya', age: 28, status: false},];
+//             let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'}, {user_id: 1, country: 'Ukraine', city: 'Ternopil'}, {user_id: 2, country: 'Poland', city: 'Krakow'}, {user_id: 4, country: 'USA', city: 'Miami'},];
+// Частковий приклад реультату:
+
+
+// let usersWithId = [{ id: 1, name: 'vasya', age: 31, status: false }, { id: 2, name: 'petya', age: 30, status: true }, { id: 3, name: 'kolya', age: 29, status: true }, { id: 4, name: 'olya', age: 28, status: false }, ];
+// let citiesWithId = [{ user_id: 3, country: 'USA', city: 'Portland' }, { user_id: 1, country: 'Ukraine', city: 'Ternopil' }, { user_id: 2, country: 'Poland', city: 'Krakow' }, { user_id: 4, country: 'USA', city: 'Miami' }, ];
+
+// function connectArray(arr1, arr2) {
+//     for (let a1 of arr1) {
+//         for (let a2 of arr2) {
+//             if (a1.id === a2.user_id) {
+//                 a1.addres = a2;
+//             }
+//         }
+
+//     }
+//     return arr1;
+// }
+
+// let a = connectArray(usersWithId, citiesWithId);
+// console.log(a);
+
+
+// ***- беремо завдання з правилами з укроку №3 :
+// Та робимо це функцією.При цьому правила отримувати через аргумент.
+// "Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
+// При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
+// Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
+
+// let rules = [{
+//         title: 'Первое правило Бойцовского клуба.',
+//         body: 'Никому не рассказывать о Бойцовском клубе.'
+//     },
+//     {
+//         title: 'Второе правило Бойцовского клуба.',
+//         body: 'Никогда никому не рассказывать о Бойцовском клубе.'
+//     },
+//     {
+//         title: 'Третье правило Бойцовского клуба.',
+//         body: 'В схватке участвуют только двое.'
+//     },
+//     {
+//         title: 'Четвертое правило Бойцовского клуба.',
+//         body: 'Не более одного поединка за один раз.'
+//     },
+//     {
+//         title: 'Пятое правило Бойцовского клуба.',
+//         body: 'Бойцы сражаются без обуви и голые по пояс.'
+//     },
+//     {
+//         title: 'Шестое правило Бойцовского клуба.',
+//         body: 'Поединок продолжается столько, сколько потребуется.'
+//     },
+//     {
+//         title: 'Седьмое правило Бойцовского клуба.',
+//         body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
+//     },
+//     {
+//         title: 'Восьмое и последнее правило Бойцовского клуба.',
+//         body: 'Новичок обязан принять бой.'
+//     },
+
+// ];
+
+
+
+// // <
+// // div id = "wrap" >
+// //     <
+// //     div class = "rules rule1" >
+// //     <
+// //     h2 > Первое правило Бойцовского клуба. < /h2> <
+// //     p > Никому не рассказывать о Бойцовском клубе. < /p> <
+// //     /div>
+
+
+// function myFunc(rules) {
+//     let wrap = document.createElement("div");
+//     wrap.id = 'wrap';
+
+//     for (let i = 0; i < rules.length; i++) {
+//         let div = document.createElement("div");
+//         div.className = `rules rule${i+1}`;
+//         let h2 = document.createElement("h2");
+//         h2.innerText = rules[i].title;
+//         let p = document.createElement("p");
+//         p.innerText = rules[i].body;
+//         div.appendChild(h2);
+//         div.appendChild(p);
+
+//         wrap.appendChild(div);
+//     }
+
+//     document.body.appendChild(wrap);
+// }
+
+// myFunc(rules);
+
+
+
+//  Додаткові від Віктора 
+
+// 1) Точная степень двойки.
+// Дано натуральное число N.
+// Выведите слово YES, если число N является точной степенью двойки,
+// или слово NO в противном случае.
+// Операцией возведения в степень пользоваться нельзя!
+
+
+// function myFunc(n, k) {
+//     if (!k) {
+//         k = 2;
+//     }
+//     k *= k;
+//     if (k > n) {
+//         console.log('no');
+//         return;
+//     } else if (n === k) {
+//         console.log('yes');
+//         return;
+//     }
+
+//     myFunc(n, k)
+
+// }
+
+
+// myFunc(16);
+
+
+// 2) Deep Copy
+// реалізувати глибоке копіювання обєкту за допомогою рекурсій
+
+let array = [2, 4, 33, 6];
+let newArray = [];
+
+function deepCopy(array, newArray, i) {
+    if (!i) {
+        i = 0;
+        console.log("i=0");
     }
-    return mas;
+    if (array[i]) {
+        console.log("iter");
+        newArray[i] = array[i];
+        i++;
+        deepCopy(array, newArray, i);
+
+    } else {
+        console.log("return");
+        return newArray = [2, 4, 5];
+    }
+
 }
 
-console.log(change(mas, 7));
+let a = deepCopy(array, newArray);
+console.log(array);
+console.log(a);
+
+
+
+
+
+// // 3) Flat
+// Вирівняти багаторівневий масив в однорівневий
+// [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
+// ===========додаткове========
