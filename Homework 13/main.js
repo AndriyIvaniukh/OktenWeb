@@ -535,31 +535,50 @@
 // 2) Deep Copy
 // реалізувати глибоке копіювання обєкту за допомогою рекурсій
 
-let array = [2, 4, 33, 6];
-let newArray = [];
+// let array = [2, 4, 33, 6];
 
-function deepCopy(array, newArray, i) {
-    if (!i) {
-        i = 0;
-        console.log("i=0");
+// let newArray = [];
+
+// function deepCopy(array, newArray, i) {
+//     if (array[i]) {
+//         console.log(array[i]);
+//         newArray[i] = array[i];
+//         i++;
+//         deepCopy(array, newArray, i);
+//         //return newArray;
+//     } else {
+
+//         console.log(newArray);
+//         return newArray;
+//     }
+
+// }
+
+// let copy = deepCopy(array, newArray, 0);
+// // copy[2] = 3;
+// console.log(array);
+// console.log(copy);
+
+
+let obj = [{
+        name: "Kolia",
+        age: 24,
+        status: true
+    },
+    {
+        name: "Kolia",
+        age: 24,
+        status: true
     }
-    if (array[i]) {
-        console.log("iter");
-        newArray[i] = array[i];
-        i++;
-        deepCopy(array, newArray, i);
+]
 
-    } else {
-        console.log("return");
-        return newArray = [2, 4, 5];
-    }
-
+for (let a of obj) {
+    console.log(a);
+    console.log(Object.keys(a));
 }
-
-let a = deepCopy(array, newArray);
-console.log(array);
-console.log(a);
-
+for (let a in obj) {
+    console.log(a);
+}
 
 
 
@@ -567,4 +586,24 @@ console.log(a);
 // // 3) Flat
 // Вирівняти багаторівневий масив в однорівневий
 // [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
-// ===========додаткове========
+
+// let array = [1, 3, ['Hello', 'Wordd', [9, 6, 1, ["uhu", 1, ["lol"]]]],
+//     ['oops'], 9
+// ];
+// let array1 = [];
+
+// function arrayOneLine(array, array1) {
+//     for (let arr of array) {
+//         if (arr[0] && typeof(arr) != 'string') {
+//             array1 = arrayOneLine(arr, array1);
+//         } else {
+//             array1.push(arr);
+//         }
+//     }
+//     return array1;
+// }
+
+// arrayOneLine(array, array1);
+
+// console.log(array);
+// console.log(array1);
