@@ -535,50 +535,27 @@
 // 2) Deep Copy
 // реалізувати глибоке копіювання обєкту за допомогою рекурсій
 
-// let array = [2, 4, 33, 6];
 
-// let newArray = [];
 
-// function deepCopy(array, newArray, i) {
-//     if (array[i]) {
-//         console.log(array[i]);
-//         newArray[i] = array[i];
-//         i++;
-//         deepCopy(array, newArray, i);
-//         //return newArray;
-//     } else {
-
-//         console.log(newArray);
-//         return newArray;
+// let obj = [{
+//         name: "Kolia",
+//         age: 24,
+//         status: true
+//     },
+//     {
+//         name: "Kolia",
+//         age: 24,
+//         status: true
 //     }
+// ]
 
+// for (let a of obj) {
+//     console.log(a);
+//     console.log(Object.keys(a));
 // }
-
-// let copy = deepCopy(array, newArray, 0);
-// // copy[2] = 3;
-// console.log(array);
-// console.log(copy);
-
-
-let obj = [{
-        name: "Kolia",
-        age: 24,
-        status: true
-    },
-    {
-        name: "Kolia",
-        age: 24,
-        status: true
-    }
-]
-
-for (let a of obj) {
-    console.log(a);
-    console.log(Object.keys(a));
-}
-for (let a in obj) {
-    console.log(a);
-}
+// for (let a in obj) {
+//     console.log(a);
+// }
 
 
 
