@@ -1,0 +1,16 @@
+.rozetkaProp{
+    width: 200px;
+    background: silver;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 7px;
+}
+
+.rozetkaApp {
+    width: 650px;
+    background: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
