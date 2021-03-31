@@ -16,3 +16,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.classButtom{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
