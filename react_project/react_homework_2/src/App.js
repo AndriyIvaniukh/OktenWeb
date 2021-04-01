@@ -28,8 +28,8 @@ function App() {
 
     let [elementsToHide,setElementsToHide] = useState([]);
 
-  const cardVisible = () => {
-      const itemsToRemove = filterElements[0];
+  const cardVisible = (value) => {
+      const itemsToRemove = value;
       if(itemsToRemove){
         setElementsToHide([...elementsToHide, itemsToRemove.id]);
       }
@@ -39,25 +39,48 @@ function App() {
         setElementsToHide([]);
   }
 
+    const revertCardById = (value) => {
+        const arrCopy = [...elementsToHide];
+        const arrUpdate = arrCopy.filter(value1 => value1!=value);
+        setElementsToHide(arrUpdate);
+    }
+
 
   const printArr = (value)=>{
       return(
+          <div className={'mainCard'}>
               <div className={'card'}>
                   <br/>
                   <p>{value.name}</p>
                   <p>{value.age}</p>
-              </div>)
+              </div>
+      {<button className={'cardButton'} onClick={()=>cardVisible(value)}>Delete first card</button>}
+          </div>
+      )
+
+    }
+
+    const printIfRemove =() => {
+        if(elementsToHide){
+            return(
+                <>
+                {elementsToHide.sort().map(value => <button className={'cardButton'} onClick={() => revertCardById(value)}>Restore - {value}</button>)}
+                </>
+            )
+        }
     }
 
     const filterElements = array.filter(value => !elementsToHide.includes(value.id));
   return (
       <>
           <div className={'classButtom'}>
-          {<button onClick={cardVisible}>Delete first card</button>}
+
           {<button onClick={revertCard}>Revert</button>}
           </div>
          <div className={'mainBody'}>
+             {printIfRemove()}
              {filterElements.map(value => printArr(value))}
+
          </div>
       </>
   );

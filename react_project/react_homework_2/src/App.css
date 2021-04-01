@@ -22,3 +22,14 @@
     justify-content: center;
     margin: 30px;
 }
+
+.mainCard{
+    display: flex;
+    align-items: center;
+}
+
+.cardButton{
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+}
