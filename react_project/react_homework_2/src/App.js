@@ -21,63 +21,67 @@ import {bindReporter} from "web-vitals/dist/modules/lib/bindReporter";
 
 function App() {
     const [array, setArray] = useState([
-        {id:1, name: 'Andriy', age:25, visible:true},
-        {id:2, name: 'Taras', age:22, visible:true},
-        {id:3, name: 'Roman', age:27, visible:true},
+        {id:1, name: 'Andriy', age:25},
+        {id:2, name: 'Taras', age:22},
+        {id:3, name: 'Roman', age:27},
     ])
-    const [counter, setCounter] = useState(0);
 
-  const cardVisible = () => {
-      if(counter<array.length){
-        let arr = [...array];
-        arr[counter].visible=!arr[counter].visible;
-      setArray(arr);
+    let [elementsToHide,setElementsToHide] = useState([]);
 
-      setCounter(counter +1);
+  const cardVisible = (value) => {
+      const itemsToRemove = value;
+      if(itemsToRemove){
+        setElementsToHide([...elementsToHide, itemsToRemove.id]);
       }
   }
 
   const revertCard = () => {
-      let arr = [...array];
-      arr.map(value => value.visible = true);
-      setArray(arr);
-      setCounter(0);
-
+        setElementsToHide([]);
   }
 
-  const deleteCard = (id) => {
-      let arr= [...array];
-      arr.filter(value => value.id === id).map(value => value.visible = !value.visible);
-      setArray(arr);
-  }
+    const revertCardById = (value) => {
+        const arrCopy = [...elementsToHide];
+        const arrUpdate = arrCopy.filter(value1 => value1!=value);
+        setElementsToHide(arrUpdate);
+    }
 
-  const printArr =(value)=>{
-      if(value.visible){return(
-              <div key={value.id} className={'card'}>
+
+  const printArr = (value)=>{
+      return(
+          <div className={'mainCard'}>
+              <div className={'card'}>
                   <br/>
-                  {<button onClick={()=>deleteCard(value.id)}>Delete</button>}
                   <p>{value.name}</p>
                   <p>{value.age}</p>
-              </div>)
-      }
-  else
-      { return (
-          <div key={value.id} className={'card'}>
-              <br/>
-              {<button onClick={()=>deleteCard(value.id)}>Return</button>}
+              </div>
+      {<button className={'cardButton'} onClick={()=>cardVisible(value)}>Delete first card</button>}
           </div>
-          )
+      )
 
-      }
-  }
+    }
+
+    const printIfRemove =() => {
+        if(elementsToHide){
+            return(
+                <>
+                {elementsToHide.sort().map(value => <button className={'cardButton'} onClick={() => revertCardById(value)}>Restore - {value}</button>)}
+                </>
+            )
+        }
+    }
+
+    const filterElements = array.filter(value => !elementsToHide.includes(value.id));
   return (
       <>
-          {<button onClick={cardVisible}>Delete first card</button>}
-          {<button onClick={revertCard}>Revert</button>}
+          <div className={'classButtom'}>
 
+          {<button onClick={revertCard}>Revert</button>}
+          </div>
          <div className={'mainBody'}>
-             {array.map(value => printArr(value))}
-    </div>
+             {printIfRemove()}
+             {filterElements.map(value => printArr(value))}
+
+         </div>
       </>
   );
 }
