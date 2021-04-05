@@ -22,7 +22,6 @@ const endUrl = ['posts', 'comments', 'photos', 'todos', 'albums', 'users'];
 const URL = 'https://jsonplaceholder.typicode.com/';
 
 
-
 function App() {
     const [userData, setUserData] = useState(
         {
@@ -32,59 +31,49 @@ function App() {
     )
     const [arrayResponce,setArrayResponce] = useState();
     const [singleResponce,setSingleResponce] = useState();
-    const [error,setError] = useState('');
 
     const fetchFromUrl = async () =>{
-        const responce = await fetch(`${URL}${userData.urlPart.toLowerCase().trim()}/${userData.index.trim() }`);
+        console.log('fetch')
+
+
+        const responce = await fetch(`${URL}${userData.urlPart.trim()}/${userData.index.trim()}`);
         const json = await responce.json();
+
+        console.log('fetch end')
 
         userData.index ? setSingleResponce(json) : setArrayResponce(json);
     }
 
-  const onSabmit = () =>{
+  const onSabmit = (e) =>{
+setUserData({
+    urlPart: '',
+    index: '',
+});
       setArrayResponce('');
       setSingleResponce('');
-      setError('');
-      if(!endUrl.includes(userData.urlPart.toLowerCase().trim()) || !userData.urlPart){
-          setError('Use available value!!!');
-          return;
-      }
-      if (!Number(userData.index) && userData.index!=='') {
-          setError('Use number 1,2,3...99,100')
-          return;
-      }
-      if( (userData.index<1 || userData.index>100) && userData.index!==''){
-          setError('Use number 1,2,3...99,100')
-          return;
-      }
+        e.preventDefault();
+        const {target: [{value: endLink},{value: id}]} =e;
+      setUserData(userData.urlPart = endLink.trim(), userData.index=id.trim());
+      console.log(userData);
       fetchFromUrl();
-      setUserData({...userData,
-          urlPart: '',
-          index: '',
-      })
-
-  }
-
-  const updateInput = (e) => {
-      const {target: {value,name}} =e;
-      setUserData({...userData, [name]: value});
   }
 
   return (
     <div>
         <div className={'inputs'}>
-            <input value={userData.urlPart} onChange={updateInput} name={'urlPart'} placeholder={'posts, comments, etc.'}/>
+            <form onSubmit={onSabmit}>
+            <input  type={'text'} name={'urlPart'} placeholder={'posts, comments, etc.'}/>
             <br/>
             <br/>
-            <input value={userData.index} onChange={updateInput} name={'index'} placeholder={'index'}/>
+            <input  type={'number'} name={'index'} placeholder={'index'}/>
             <br/>
             <br/>
-            <button onClick={onSabmit}>Submit</button>
+            <button type={'submit'}>Submit</button>
+            </form>
 
         </div>
             <div>
                 <pre>
-                    {error && (<div><h3>{error}</h3></div>)}
                     {singleResponce && (<div>{singleResponce.title} - {singleResponce.id}</div>)}
                     {arrayResponce && arrayResponce.map(value => (<div>{value.title} - {value.id}</div>) )}
                 </pre>
@@ -94,3 +83,78 @@ function App() {
 }
 
 export default App;
+
+
+//Controlled
+
+// function App() {
+//     const [userData, setUserData] = useState(
+//         {
+//             urlPart: '',
+//             index: '',
+//         }
+//     )
+//     const [arrayResponce,setArrayResponce] = useState();
+//     const [singleResponce,setSingleResponce] = useState();
+//     const [error,setError] = useState('');
+//
+//     const fetchFromUrl = async () =>{
+//         const responce = await fetch(`${URL}${userData.urlPart.toLowerCase().trim()}/${userData.index.trim() }`);
+//         const json = await responce.json();
+//
+//         userData.index ? setSingleResponce(json) : setArrayResponce(json);
+//     }
+//
+//   const onSabmit = () =>{
+//       setArrayResponce('');
+//       setSingleResponce('');
+//       setError('');
+//       if(!endUrl.includes(userData.urlPart.toLowerCase().trim()) || !userData.urlPart){
+//           setError('Use available value!!!');
+//           return;
+//       }
+//       if (!Number(userData.index) && userData.index!=='') {
+//           setError('Use number 1,2,3...99,100')
+//           return;
+//       }
+//       if( (userData.index<1 || userData.index>100) && userData.index!==''){
+//           setError('Use number 1,2,3...99,100')
+//           return;
+//       }
+//       fetchFromUrl();
+//       setUserData({...userData,
+//           urlPart: '',
+//           index: '',
+//       })
+//
+//   }
+//
+//   const updateInput = (e) => {
+//       const {target: {value,name}} =e;
+//       setUserData({...userData, [name]: value});
+//   }
+//
+//   return (
+//     <div>
+//         <div className={'inputs'}>
+//             <input value={userData.urlPart} onChange={updateInput} name={'urlPart'} placeholder={'posts, comments, etc.'}/>
+//             <br/>
+//             <br/>
+//             <input value={userData.index} onChange={updateInput} name={'index'} placeholder={'index'}/>
+//             <br/>
+//             <br/>
+//             <button onClick={onSabmit}>Submit</button>
+//
+//         </div>
+//             <div>
+//                 <pre>
+//                     {error && (<div><h3>{error}</h3></div>)}
+//                     {singleResponce && (<div>{singleResponce.title} - {singleResponce.id}</div>)}
+//                     {arrayResponce && arrayResponce.map(value => (<div>{value.title} - {value.id}</div>) )}
+//                 </pre>
+//             </div>
+//     </div>
+//   );
+// }
+//
+// export default App;
