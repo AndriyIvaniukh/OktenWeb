@@ -1,6 +1,5 @@
 
-import React, {useState} from "react";
-import './App.css';
+import React, {useRef, useState, useEffect} from "react";
 
 
 // дз  створти 2 інтупи і кнопку
@@ -18,54 +17,59 @@ import './App.css';
 // create controlled and uncontrolled checkbox
 // create controlled and uncontrolled radio
 
-const endUrl = ['posts', 'comments', 'photos', 'todos', 'albums', 'users'];
+const availableValue = ['posts', 'comments', 'photos', 'todos', 'albums', 'users'];
 const URL = 'https://jsonplaceholder.typicode.com/';
 
 
 function App() {
-    const [userData, setUserData] = useState(
-        {
-            urlPart: '',
-            index: '',
-        }
-    )
-    const [arrayResponce,setArrayResponce] = useState();
-    const [singleResponce,setSingleResponce] = useState();
+    const [value, setValue] = useState('');
+    const [values, setValues] = useState('');
+    const endUrl = useRef();
+    const id = useRef();
 
-    const fetchFromUrl = async () =>{
-        console.log('fetch')
-
-
-        const responce = await fetch(`${URL}${userData.urlPart.trim()}/${userData.index.trim()}`);
+    const startFetch = async (inp1,inp2) => {
+        const responce = await fetch(`${URL}${inp1}/${inp2}`);
         const json = await responce.json();
-
-        console.log('fetch end')
-
-        userData.index ? setSingleResponce(json) : setArrayResponce(json);
+        console.log(json)
+        inp2!=='' ? setValue(json) : setValues(json);
     }
 
-  const onSabmit = (e) =>{
-setUserData({
-    urlPart: '',
-    index: '',
-});
-      setArrayResponce('');
-      setSingleResponce('');
-        e.preventDefault();
-        const {target: [{value: endLink},{value: id}]} =e;
-      setUserData(userData.urlPart = endLink.trim(), userData.index=id.trim());
-      console.log(userData);
-      fetchFromUrl();
-  }
 
+    const checkCorrect = (inp1, inp2) => {
+        if(!availableValue.includes(inp1.trim().toLowerCase())){
+            console.error('Bad first inputs, try another values');
+            return
+        }
+        if((inp2<1 || inp2>100) && inp2 !== ''){
+            console.error('Bad second inputs, try another values');
+            return;
+        }
+
+        startFetch(inp1,inp2);
+
+        endUrl.current.value = '';
+        id.current.value = '';
+        console.log('Good');
+    }
+
+    const onSabmit = (e) =>{
+        setValue('');
+        setValues('');
+        e.preventDefault();
+        const inp1 = endUrl.current.value;
+       const inp2 = id.current.value;
+
+       checkCorrect(inp1, inp2);
+
+    }
   return (
     <div>
         <div className={'inputs'}>
             <form onSubmit={onSabmit}>
-            <input  type={'text'} name={'urlPart'} placeholder={'posts, comments, etc.'}/>
+            <input  ref={endUrl} name={'endUrl'} type={'text'} placeholder={'posts, comments, etc.'}/>
             <br/>
             <br/>
-            <input  type={'number'} name={'index'} placeholder={'index'}/>
+            <input  ref={id} name={'id'} type={'number'} placeholder={'index'}/>
             <br/>
             <br/>
             <button type={'submit'}>Submit</button>
@@ -73,10 +77,14 @@ setUserData({
 
         </div>
             <div>
-                <pre>
-                    {singleResponce && (<div>{singleResponce.title} - {singleResponce.id}</div>)}
-                    {arrayResponce && arrayResponce.map(value => (<div>{value.title} - {value.id}</div>) )}
-                </pre>
+
+                    <>
+                    {value && (<>{value.title} - {value.id}</>)}
+                    {values && (values.map(value => (<pre key={value.id}>{value.title} - {value.id}</pre>)))}
+                    {/*{singleResponce && (<div>{singleResponce.title} - {singleResponce.id}</div>)}*/}
+                    {/*{arrayResponce && arrayResponce.map(value => (<div>{value.title} - {value.id}</div>) )}*/}
+                    </>
+
             </div>
     </div>
   );
@@ -158,3 +166,50 @@ export default App;
 // }
 //
 // export default App;
+
+
+//
+// function App() {
+//     const [choise, setChoise] = useState('lime');
+// const [radio, setRadio] =useState('Male')
+//     const onChange =(e)=>{
+//         const {target: {value}} = e;
+//         console.log(value)
+//         setChoise(value);
+//     }
+//
+//     const changeCheckBox=(e) => {
+//         const {target:{value, checked}} = e;
+//
+//         console.log(value , checked)
+//     }
+//
+//     const changeRadio = (e) => {
+//         const {target: {value}} = e;
+//         console.log(value)
+//             }
+//
+//   return (
+//     <div>
+//         <div onChange={changeRadio}>
+//         <input onChange={(e) => setRadio(e.target.value)} type="radio" value="Male" name="gender" /> Male
+//         <input onChange={(e) => setRadio(e.target.value)} type="radio" value="Female" name="gender" /> Female
+//         <input onChange={(e) => setRadio(e.target.value)} type="radio" value="Other" name="gender" /> Other
+//         </div>
+//         <br/><br/>
+//         <input value="fist" type="checkbox" onChange={changeCheckBox}/>
+// <br/><br/>
+//       <select value={choise} onChange={onChange}>
+//         <option value="gray">Грейпфрут</option>
+//         <option value="lime">Лайм</option>
+//         <option value="cocos">Кокос</option>
+//         <option value="mango">Манго</option>
+//       </select>
+//         {choise}
+//         {radio}
+//     </div>
+//   );
+// }
+//
+// export default App;
+
