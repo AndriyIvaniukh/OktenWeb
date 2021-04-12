@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    height: 60px;
+    padding: 0 40px ;
+    background: aquamarine;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerButtons{
+    display: flex;
+    column-gap: 40px;
+}
+
+.headerCounters{
+    display: flex;
+    column-gap: 40px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    align-items: center;
+    row-gap: 20px;
+}
