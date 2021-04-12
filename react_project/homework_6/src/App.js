@@ -5,31 +5,22 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 import React, {useState, createContext, useContext} from 'react'
 
 const TodosContext = createContext();
 
 const ContextProvider = ({children}) => {
     const [todos,setTodos] = useState([]);
-    const [counter, setCounter] = useState(0);
-    const [doneCounter, setDoneCounter] = useState(0);
+    const [doneTodosId,setDoneTodosId] = useState([]);
 
-    const incDoneCounter = () =>{
-        setCounter(counter +1);
+    const addDoneTodo =(inputValue)=>{
+        setDoneTodosId([inputValue,...doneTodosId])
     }
 
-    const decDoneCounter = () =>{
-        setCounter(counter -1);
+    const deleteDoneTodo =(inputValue)=>{
+        setDoneTodosId(doneTodosId.filter(el => el!==inputValue));
     }
-
-    const incCounter = () =>{
-        setCounter(counter +1);
-    }
-
-    const decCounter = () =>{
-        setCounter(counter -1);
-    }
-
     const addTodo = (inputValue) => {
         setTodos([inputValue, ...todos])
     }
@@ -39,12 +30,9 @@ const ContextProvider = ({children}) => {
             todos,
             addTodo,
             setTodos,
-            counter,
-            doneCounter,
-            incCounter,
-            decCounter,
-            incDoneCounter,
-            decDoneCounter,
+            doneTodosId,
+            addDoneTodo,
+            deleteDoneTodo,
         }}
         >
             {children}
@@ -53,7 +41,7 @@ const ContextProvider = ({children}) => {
 }
 
 const Header = () =>{
-    const {counter,doneCounter} = useContext(TodosContext)
+    const {todos, doneTodosId} = useContext(TodosContext)
     return(
         <header className={'header'}>
             <div className={'headerButtons'}>
@@ -61,18 +49,19 @@ const Header = () =>{
                 <Link to={'/addNewTodo'}>Add New To do</Link>
             </div>
             <div className={'headerCounters'}>
-                <p>All: {counter}</p>
-                <p>Done: {doneCounter}</p>
-                <p>Wait: {counter-doneCounter}</p>
+                <p>All: {todos.length}</p>
+                <p>Done: {doneTodosId.length}</p>
+                <p>In process: {todos.length - doneTodosId.length}</p>
             </div>
         </header>
     )
 }
 const AddNewTodo = () => {
-    const {addTodo, incCounter} = useContext(TodosContext)
+    const {todos,addTodo} = useContext(TodosContext)
     const [inputValue,setInputValue] = useState({
         title: '',
         description: '',
+        id: null,
     })
 
     const inputsOnChange = (e) => {
@@ -81,13 +70,13 @@ const AddNewTodo = () => {
     }
 
     const onSubmit =()=>{
-        addTodo(inputValue);
-        incCounter();
-
-
+        const uuid = uuidv4();
+        addTodo({...inputValue, id: uuid});
+        console.log(todos);
         setInputValue({
             title: '',
             description: '',
+            id: null,
         });
     }
     return(
@@ -100,25 +89,28 @@ const AddNewTodo = () => {
 }
 
 const AllTodoList = () => {
-    const {todos,setTodos,decCounter} = useContext(TodosContext)
-    console.log(todos)
-
+    const {todos,setTodos, doneTodosId,addDoneTodo, deleteDoneTodo} = useContext(TodosContext)
     const deleteTodo = (el) =>{
-        const newArray = todos.filter(value => value.description !== el.description && value.title!==el.title);
+        const newArray = todos.filter(value => value.id !== el.id);
         setTodos(newArray);
-        decCounter();
     }
 
-    const markAsDone = () => {
+    const markAsDone = (el) => {
+        if(doneTodosId.includes(el.id)){
+            deleteDoneTodo(el.id);
+        }else{
+            addDoneTodo(el.id)
 
+        }
     }
+
     return(
         <div>
             {todos.map(el =>
-                <div key={el.title+el.description}>
+                <div key={el.id}>
                     <h3>{el.title}</h3>
                     <p>{el.description}</p>
-                    <button onClick={markAsDone}>Done</button>
+                    <button onClick={() => {markAsDone(el)}}>{doneTodosId.includes(el.id) ? <p>Mark as Active</p> : <p>Mark as Done</p>}</button>
                     <button onClick={() => {deleteTodo(el)}}>Delete</button>
                 </div>)}
         </div>
