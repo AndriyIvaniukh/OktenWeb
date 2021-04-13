@@ -26,5 +26,9 @@
 }
 
 .todoDiv{
+    text-decoration: none;
+}
 
+.mark{
+    text-decoration: line-through;
 }

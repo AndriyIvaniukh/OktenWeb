@@ -14,25 +14,30 @@ const ContextProvider = ({children}) => {
     const [todos,setTodos] = useState([]);
     const [doneTodosId,setDoneTodosId] = useState([]);
 
-    const addDoneTodo =(inputValue)=>{
-        setDoneTodosId([inputValue,...doneTodosId])
-    }
-
-    const deleteDoneTodo =(inputValue)=>{
-        setDoneTodosId(doneTodosId.filter(el => el!==inputValue));
-    }
     const addTodo = (inputValue) => {
         setTodos([inputValue, ...todos])
+    }
+
+    const deleteTodo =(inputValue)=>{
+        setTodos(todos.filter(value => value.id !== inputValue.id));
+        setDoneTodosId(doneTodosId.filter(el => el!==inputValue.id));
+    }
+
+    const markAsDone = (id) =>{
+        if(doneTodosId.includes(id)){
+            setDoneTodosId(doneTodosId.filter(el => el!==id));
+        }else{
+            setDoneTodosId([id,...doneTodosId])
+        }
     }
 
     return(
         <TodosContext.Provider value={{
             todos,
             addTodo,
-            setTodos,
+            deleteTodo,
             doneTodosId,
-            addDoneTodo,
-            deleteDoneTodo,
+            markAsDone
         }}
         >
             {children}
@@ -56,6 +61,7 @@ const Header = () =>{
         </header>
     )
 }
+
 const AddNewTodo = () => {
     const {todos,addTodo} = useContext(TodosContext)
     const [inputValue,setInputValue] = useState({
@@ -72,7 +78,6 @@ const AddNewTodo = () => {
     const onSubmit =()=>{
         const uuid = uuidv4();
         addTodo({...inputValue, id: uuid});
-        console.log(todos);
         setInputValue({
             title: '',
             description: '',
@@ -89,29 +94,15 @@ const AddNewTodo = () => {
 }
 
 const AllTodoList = () => {
-    const {todos,setTodos, doneTodosId,addDoneTodo, deleteDoneTodo} = useContext(TodosContext)
-    const deleteTodo = (el) =>{
-        const newArray = todos.filter(value => value.id !== el.id);
-        setTodos(newArray);
-    }
-
-    const markAsDone = (el) => {
-        if(doneTodosId.includes(el.id)){
-            deleteDoneTodo(el.id);
-        }else{
-            addDoneTodo(el.id)
-
-        }
-    }
-
+    const {todos,deleteTodo, doneTodosId, markAsDone} = useContext(TodosContext)
     return(
         <div>
             {todos.map(el =>
-                <div key={el.id}>
+                <div className={!doneTodosId.includes(el.id) ? 'todoDiv' : 'mark'} key={el.id}>
                     <h3>{el.title}</h3>
                     <p>{el.description}</p>
-                    <button onClick={() => {markAsDone(el)}}>{doneTodosId.includes(el.id) ? <p>Mark as Active</p> : <p>Mark as Done</p>}</button>
-                    <button onClick={() => {deleteTodo(el)}}>Delete</button>
+                    <button onClick={() => {markAsDone(el.id)}}>{doneTodosId.includes(el.id) ? <p>Mark as Active</p> : <p>Mark as Done</p>}</button>
+                    <button onClick={() => deleteTodo(el)}>Delete</button>
                 </div>)}
         </div>
     )
