@@ -11,67 +11,28 @@
 // l (затримка 0.7)
 // о (затримка 1)
 
-// let str = 'hello';
-// let i = 0;
 
-// function getRandom() {
-//     let val = Math.random() * 1000;
-//     // console.log(val);
-//     return val;
+// const button = document.getElementById("submit");
+
+// button.onclick = function() {
+//     const input = document.getElementById("input");
+//     const str = input.value;
+//     stringArrayToChar(str);
 // }
 
-// function myPromis(resolve) {
-//     return new Promise(resolve => {
-//         setTimeout(() => {
-//             resolve(str[i]);
-//             i++;
-//         }, getRandom());
-//     });
+// async function stringArrayToChar(str) {
+//     for (let ch of str) {
+//         const a = await startPrint(ch);
+//         const p = document.getElementById("print");
+//         p.innerText += a + ' ';
+//     }
 // }
 
-// new Promise(resolve => {
-//         setTimeout(() => {
-//             resolve(str[i]);
-//             i++;
-//         }, getRandom());
-//     })
-//     .then(value => {
-//         console.log(value);
-//         return myPromis(str[i])
-//     })
-//     .then(value => {
-//         console.log(value);
-//         return myPromis(str[i])
-//     })
-//     .then(value => {
-//         console.log(value);
-//         return myPromis(str[i])
-//     })
-//     .then(value => {
-//         console.log(value);
-//         return myPromis(str[i])
-//     })
-//     .then(value => {
-//         console.log(value);
-//     });
+// startPrint = (ch) => {
+//     return new Promise(resolve => setTimeout(() => resolve(ch), Math.random() * 1000))
 
-// -за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі users.
-//  За допомогою document.createElement вивести їх в браузер. 
-//  Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт в свій блок (блок в блоці).
+// }
 
-// fetch(`https://jsonplaceholder.typicode.com/users`)
-//     .then(value => value.json())
-//     .then(values => {
-//         let div = document.createElement('div');
-
-//         for (let user of values) {
-//             let div1 = document.createElement('div');
-//             div1.innerText = `id - ${user.id}, name - ${user.name},  email - ${user.email}`;
-//             div.appendChild(div1);
-//         }
-
-//         document.body.appendChild(div);
-//     });
 
 // - за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі posts. 
 // За допомогою document.createElement вивести їх в браузер. 
