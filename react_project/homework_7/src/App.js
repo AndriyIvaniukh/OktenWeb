@@ -69,14 +69,33 @@ import {
     Link
 } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
-import React, {useState, createContext, useContext} from 'react'
+import React, {useState, createContext, useContext, useReducer} from 'react'
 
 const TodosContext = createContext();
 
+const initialState ={
+    todos: [],
+    doneTodosId: [],
+}
+
+const reducer = (state, action) =>{
+    switch (action.type){
+        case 'ADDTODO':
+            return {...state, todos: [action.props]}
+        default:
+            return state;
+    }
+}
 const ContextProvider = ({children}) => {
+    const [state,dispatch] = useReducer(reducer,initialState);
     console.log('ContextProvider')
     const [todos,setTodos] = useState([]);
     const [doneTodosId,setDoneTodosId] = useState([]);
+
+    const changeState = (initialState)=>{
+         dispatch({type:'ADDTODO', props: initialState})
+        console.log(state, 'dispatch')
+    }
 
     const addTodo = (inputValue) => {
         setTodos([inputValue, ...todos])
@@ -101,7 +120,8 @@ const ContextProvider = ({children}) => {
             addTodo,
             deleteTodo,
             doneTodosId,
-            markAsDone
+            markAsDone,
+            changeState
         }}
         >
             {children}
@@ -129,7 +149,7 @@ const Header = () =>{
 
 const AddNewTodo = () => {
     console.log('AddNewTodo')
-    const {todos,addTodo} = useContext(TodosContext)
+    const {todos,addTodo,changeState} = useContext(TodosContext)
     const [inputValue,setInputValue] = useState({
         title: '',
         description: '',
@@ -155,6 +175,7 @@ const AddNewTodo = () => {
             <input value={inputValue.title} onChange={inputsOnChange} type={'text'} name={'title'} placeholder={'add title'}/>
             <input value={inputValue.description} onChange={inputsOnChange} type={'text'} name={'description'} placeholder={'add description'}/>
             <button onClick={onSubmit}>Submit</button>
+            <button onClick={()=> changeState(6)}>reducer</button>
         </div>
     )
 }
@@ -176,6 +197,7 @@ const AllTodoList = () => {
 }
 
 function App() {
+
     return (
         <ContextProvider>
             <Router>
