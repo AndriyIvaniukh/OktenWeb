@@ -76,43 +76,79 @@ const TodosContext = createContext();
 const initialState ={
     todos: [],
     doneTodosId: [],
+    inputValue:{
+        title: '',
+        description: '',
+        id: null,
+    }
 }
 
 const reducer = (state, action) =>{
     switch (action.type){
         case 'ADDTODO':
-            return {...state, todos: [action.props]}
+            return {...state, todos: [... state.todos, action.props]}
+        case 'DELETETODO':
+            return {...state,
+                todos: [...state.todos.filter(el => el.id!==action.props)],
+                doneTodosId: [...state.doneTodosId.filter(el=>el!==action.props)],
+            }
+        case 'MARKASDONE':
+            return {...state, doneTodosId: [...state.doneTodosId.filter(el=>el!==action.props)]
+            }
+        case 'MARKASACTIVE':
+            return {...state, doneTodosId: [action.props, ...state.doneTodosId]
+            }
+        case 'CHANGE_INPUT_VALUE':
+            return {...state, inputValue: {...state.inputValue, [action.props.name]: action.props.value}}
+        case 'SET_DEFAULT_INPUT_VALUE':
+            return {...state, inputValue: {title: '', description: '', id: null}}
         default:
             return state;
     }
 }
 const ContextProvider = ({children}) => {
     const [state,dispatch] = useReducer(reducer,initialState);
-    console.log('ContextProvider')
-    const [todos,setTodos] = useState([]);
-    const [doneTodosId,setDoneTodosId] = useState([]);
 
-    const changeState = (initialState)=>{
+    //  const [todos,setTodos] = useState([]);
+    // const [doneTodosId,setDoneTodosId] = useState([]);
+
+    const addTodo = (initialState)=>{
          dispatch({type:'ADDTODO', props: initialState})
-        console.log(state, 'dispatch')
+        console.log('dispatch addTodo')
     }
 
-    const addTodo = (inputValue) => {
-        setTodos([inputValue, ...todos])
-    }
+    // const addTodo = (inputValue) => {
+    //     setTodos([inputValue, ...todos])
+    // }
 
-    const deleteTodo =(inputValue)=>{
-        setTodos(todos.filter(value => value.id !== inputValue.id));
-        setDoneTodosId(doneTodosId.filter(el => el!==inputValue.id));
+    const deleteTodo = (initialState)=>{
+        dispatch({type:'DELETETODO', props: initialState})
+        console.log('dispatch deleteTodo')
     }
+    // const deleteTodo =(inputValue)=>{
+    //     setTodos(todos.filter(value => value.id !== inputValue.id));
+    //     setDoneTodosId(doneTodosId.filter(el => el!==inputValue.id));
+    // }
+
+
+    // const markAsDone = (id) =>{
+    //     if(doneTodosId.includes(id)){
+    //         setDoneTodosId(doneTodosId.filter(el => el!==id));
+    //     }else{
+    //         setDoneTodosId([id,...doneTodosId])
+    //     }
+    // }
 
     const markAsDone = (id) =>{
-        if(doneTodosId.includes(id)){
-            setDoneTodosId(doneTodosId.filter(el => el!==id));
+        if(state.doneTodosId.includes(id)){
+            dispatch({type:'MARKASDONE', props: id});
         }else{
-            setDoneTodosId([id,...doneTodosId])
+            dispatch({type:'MARKASACTIVE', props: id});
         }
     }
+
+    const todos = state.todos;
+    const doneTodosId = state.doneTodosId;
 
     return(
         <TodosContext.Provider value={{
@@ -121,7 +157,6 @@ const ContextProvider = ({children}) => {
             deleteTodo,
             doneTodosId,
             markAsDone,
-            changeState
         }}
         >
             {children}
@@ -130,7 +165,6 @@ const ContextProvider = ({children}) => {
 }
 
 const Header = () =>{
-    console.log('Header')
     const {todos, doneTodosId} = useContext(TodosContext)
     return(
         <header className={'header'}>
@@ -148,8 +182,8 @@ const Header = () =>{
 }
 
 const AddNewTodo = () => {
-    console.log('AddNewTodo')
-    const {todos,addTodo,changeState} = useContext(TodosContext)
+    const [state,dispatch] = useReducer(reducer, initialState)
+    const {todos,addTodo} = useContext(TodosContext)
     const [inputValue,setInputValue] = useState({
         title: '',
         description: '',
@@ -158,30 +192,30 @@ const AddNewTodo = () => {
 
     const inputsOnChange = (e) => {
         const {name,value} = e.target;
-        setInputValue({...inputValue, [name]: value})
+        // setInputValue({...inputValue, [name]: value})
+        dispatch({type: 'CHANGE_INPUT_VALUE', props: {name, value}})
     }
 
     const onSubmit =()=>{
         const uuid = uuidv4();
-        addTodo({...inputValue, id: uuid});
-        setInputValue({
-            title: '',
-            description: '',
-            id: null,
-        });
+        addTodo({...state.inputValue, id: uuid});
+        // setInputValue({
+        //     title: '',
+        //     description: '',
+        //     id: null,
+        // });
+        dispatch({type: 'SET_DEFAULT_INPUT_VALUE'})
     }
     return(
         <div className={'inputs'}>
-            <input value={inputValue.title} onChange={inputsOnChange} type={'text'} name={'title'} placeholder={'add title'}/>
-            <input value={inputValue.description} onChange={inputsOnChange} type={'text'} name={'description'} placeholder={'add description'}/>
+            <input value={state.inputValue.title} onChange={inputsOnChange} type={'text'} name={'title'} placeholder={'add title'}/>
+            <input value={state.inputValue.description} onChange={inputsOnChange} type={'text'} name={'description'} placeholder={'add description'}/>
             <button onClick={onSubmit}>Submit</button>
-            <button onClick={()=> changeState(6)}>reducer</button>
         </div>
     )
 }
 
 const AllTodoList = () => {
-    console.log('AllTodoList')
     const {todos,deleteTodo, doneTodosId, markAsDone} = useContext(TodosContext)
     return(
         <div>
@@ -190,7 +224,7 @@ const AllTodoList = () => {
                     <h3>{el.title}</h3>
                     <p>{el.description}</p>
                     <button onClick={() => {markAsDone(el.id)}}>{doneTodosId.includes(el.id) ? <p>Mark as Active</p> : <p>Mark as Done</p>}</button>
-                    <button onClick={() => deleteTodo(el)}>Delete</button>
+                    <button onClick={() => deleteTodo(el.id)}>Delete</button>
                 </div>)}
         </div>
     )
