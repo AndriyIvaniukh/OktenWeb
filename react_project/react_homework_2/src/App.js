@@ -1,4 +1,3 @@
-
 import './App.css';
 import React, {Component} from 'react';
 import Component1 from "./components/component1";
@@ -20,76 +19,79 @@ import {bindReporter} from "web-vitals/dist/modules/lib/bindReporter";
 // https://material-ui.com/components/switches/#customized-switches
 
 function App() {
-    const [array, setArray] = useState([
-        {id:1, name: 'Andriy', age:25},
-        {id:2, name: 'Taras', age:22},
-        {id:3, name: 'Roman', age:27},
+    const [array, ] = useState([
+        {id: 1, name: 'Andriy', age: 25},
+        {id: 2, name: 'Taras', age: 22},
+        {id: 3, name: 'Roman', age: 27},
     ])
 
-    let [elementsToHide,setElementsToHide] = useState([]);
+    let [elementsToHide, setElementsToHide] = useState([]);
 
-  const cardVisible = (value) => {
-      const itemsToRemove = value;
-      if(itemsToRemove){
-        setElementsToHide([...elementsToHide, itemsToRemove.id]);
-      }
-  }
+    const cardVisible = (id) => {
+            setElementsToHide([...elementsToHide, id]);
+    }
 
-  const revertCard = () => {
+    const revertCard = () => {
         setElementsToHide([]);
-  }
+    }
 
-    const revertCardById = (value) => {
+    const revertCardById = (id) => {
         const arrCopy = [...elementsToHide];
-        const arrUpdate = arrCopy.filter(value1 => value1!=value);
+        const arrUpdate = arrCopy.filter(value => value !== id);
         setElementsToHide(arrUpdate);
     }
 
-
-  const printArr = (value)=>{
-      return(
-          <div className={'mainCard'}>
-              <div className={'card'}>
-                  <br/>
-                  <p>{value.name}</p>
-                  <p>{value.age}</p>
-              </div>
-      {<button className={'cardButton'} onClick={()=>cardVisible(value)}>Delete first card</button>}
-          </div>
-      )
+    const printArr = ({name, age, id}) => {
+        return (
+            <div className='mainCard'>
+                <div className='card'>
+                    <br/>
+                    <p>{name}</p>
+                    <p>{age}</p>
+                </div>
+                <button
+                    className='cardButton'
+                    onClick={() => cardVisible(id)}>
+                    Delete first card
+                </button>
+            </div>
+        )
 
     }
 
-    const printIfRemove =() => {
-        if(elementsToHide){
-            return(
+    const printIfRemove = () => {
+        if (elementsToHide) {
+            return (
                 <>
-                {elementsToHide.sort().map(value => <button className={'cardButton'} onClick={() => revertCardById(value)}>Restore - {value}</button>)}
+                    {
+                        elementsToHide.sort().map(value =>
+                        <button
+                            className='cardButton'
+                            onClick={() => revertCardById(value)}>
+                            Restore- {value}
+                        </button>)
+                    }
                 </>
             )
         }
     }
 
-    const filterElements = array.filter(value => !elementsToHide.includes(value.id));
-  return (
-      <>
-          <div className={'classButtom'}>
+    const filterElements = array.filter((value) => !elementsToHide.includes(value.id));
 
-          {<button onClick={revertCard}>Revert</button>}
-          </div>
-         <div className={'mainBody'}>
-             {printIfRemove()}
-             {filterElements.map(value => printArr(value))}
-
-         </div>
-      </>
-  );
+    return (
+        <>
+            <div className='classButtom'>
+                <button onClick={revertCard}>Revert</button>
+            </div>
+            <div className='mainBody'>
+                {printIfRemove()}
+                {filterElements.map(value => printArr(value))}
+            </div>
+        </>
+    );
 }
 
 export default App;
-
-
-
 
 
 // 1-2 завдання перша спроба
